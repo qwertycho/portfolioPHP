@@ -14,6 +14,7 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 header{
@@ -75,6 +76,10 @@ main{
     display: flex; 
     flex-direction: column;
     flex: 1;
+    background-image: url("/img/hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 main .container{
@@ -108,9 +113,18 @@ main .technieken .techniekIconen{
 main .technieken .techniekIconen .techniek{
     aspect-ratio: 1/1;
     text-align: center;
+    color: var(--black);
     background-color: var(--white);
     border-radius: 10%;
     box-shadow: 8px 8px 25px -10px rgba(0,0,0,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .technieken .techniekIconen .techniek img{
+   max-width: 90%;
+   max-height: 90%;
 }
 
 

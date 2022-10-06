@@ -25,16 +25,22 @@
                 <h3>Back-end Developer</h3>
                 <div class="techniekIconen">
                     <div class="techniek">
-                        <p>Javascript</p>
+                    <img src="./img/node.png" width="90%" alt="node.js">
                     </div>
                     <div class="techniek">
-                        <p>PHP</p>
+                    <img src="./img/php.png" width="90%" alt="php">
                     </div>
                     <div class="techniek">
-                        <p>C#</p>
+                        <img src="./img/cSharp.png" width="90%" alt="c#">
                     </div>
                     <div class="techniek">
-                        <p>Linux</p>
+                    <img src="./img/tux.png" width="90%" alt="Linux">
+                    </div>
+                    <div class="techniek">
+                    <img src="./img/sql.png" width="90%" alt="SQL">
+                    </div>
+                    <div class="techniek">
+                    <img src="./img/sql.png" width="90%" alt="SQL">
                     </div>
                 </div>
             </div>

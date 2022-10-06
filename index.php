@@ -12,13 +12,7 @@
         <h1>Tycho van Opstal</h1>
         <h2>Software Developer</h2>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="projecten.php">Projecten</a></li>
-            <li><a href="contact.php">Contact</a></li>
-        </ul>
-    </nav>
+    <?php include './components/nav.html'; ?>
     <main>
         <div class="container">
             <div class="technieken">

@@ -47,8 +47,15 @@
             <div class="about">
                 <h3>Over Mij</h3>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum quo necessitatibus placeat amet in ipsam perferendis pariatur dolorum soluta asperiores, aliquam laudantium minima doloribus veniam incidunt commodi eos consectetur ratione!
+                    Ik ben Tycho van Opstal, een student software developer aan het Grafisch Lyceum Rotterdam!
+                    Mijn passie voor technologie zorgt ervoor dat geen uitdaging te groot is.
+                    In mijn vrije tijd ben ik (meestal) bezig met allerlei projecten, zoals het ontwikkelen van websites en applicaties.
+                    Maar ook het beheren van mijn eigen homelab waar ik linux servers draai, vooral voor het testen van mijn eigen projecten.
+                    <br>
+                    <br>
+                    Als ik niet bezig ben met projecten houd ik mij bezig met (vr) games, 3d-printen of een van mijn vele andere hobbies.
                 </p>
+                <img class="tycho" src="./img/tycho.png" width="90%" alt="Tycho">
             </div>
         </div>
     </main>

@@ -114,7 +114,6 @@ main .technieken .techniekIconen .techniek{
     aspect-ratio: 1/1;
     text-align: center;
     color: var(--black);
-    background-color: var(--white);
     border-radius: 10%;
     box-shadow: 8px 8px 25px -10px rgba(0,0,0,1);
     display: flex;
@@ -127,5 +126,11 @@ main .technieken .techniekIconen .techniek img{
    max-height: 90%;
 }
 
+main .about .tycho{
+    margin-left: 25%;
+    max-width: 50%;
+    box-shadow: 8px 8px 25px -10px rgba(0,0,0,1);
+    border-radius: 10%;
+}
 
 /* einde main */

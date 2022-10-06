@@ -1,0 +1,117 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --grey: #636363;
+    --dark-grey: #383838;
+    --pop: #4436c0;
+
+  }
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--grey);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+header h1{
+    margin-top: 0;
+}
+
+header h2{
+    margin-bottom: 0;
+}
+
+/* navigatie */
+
+nav{
+    width: 100%;
+    min-height: 50px;
+    background-color: var(--dark-grey);
+}
+
+nav ul{
+    min-height: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li{
+    display: inline-block;
+}
+
+nav a{
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+nav a:hover{
+    background-color: var(--pop);
+    border-radius: 8px;
+}
+
+
+/* einde navigatie */
+
+/* main */
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    flex: 1;
+}
+
+main .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    color: var(--white);
+}
+
+main .technieken{
+    width: 40%;
+    text-align: center;
+}
+
+main .about{
+    width: 30%;
+    padding: 0 5% 0 5%;
+}
+
+main .technieken .techniekIconen{
+    width: 50%;
+    margin-left: 25%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+
+main .technieken .techniekIconen .techniek{
+    aspect-ratio: 1/1;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 10%;
+    box-shadow: 8px 8px 25px -10px rgba(0,0,0,1);
+}
+
+
+/* einde main */

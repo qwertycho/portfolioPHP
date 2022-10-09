@@ -19,22 +19,24 @@
                 <h3>Back-end Developer</h3>
                 <div class="techniekIconen">
                     <div class="techniek">
-                    <img src="./img/node.png" width="90%" alt="node.js">
+                        <a href="projecten.php?techniek=node">
+                            <img src="./img/node.png" width="90%" alt="node.js">
+                        </a>
                     </div>
                     <div class="techniek">
-                    <img src="./img/php.png" width="90%" alt="php">
+                        <a href="projecten.php?techniek=php">
+                            <img src="./img/php.png" width="90%" alt="php">
+                        </a>
                     </div>
                     <div class="techniek">
-                        <img src="./img/cSharp.png" width="90%" alt="c#">
+                        <a href="projecten.php?techniek=csharp">
+                            <img src="./img/cSharp.png" width="90%" alt="c#">
+                        </a>
                     </div>
                     <div class="techniek">
-                    <img src="./img/tux.png" width="90%" alt="Linux">
-                    </div>
-                    <div class="techniek">
-                    <img src="./img/sql.png" width="90%" alt="SQL">
-                    </div>
-                    <div class="techniek">
-                    <img src="./img/sql.png" width="90%" alt="SQL">
+                        <a href="projecten.php?techniek=linux">
+                            <img src="./img/tux.png" width="90%" alt="Linux">
+                        </a>
                     </div>
                 </div>
             </div>

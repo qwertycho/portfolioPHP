@@ -41,7 +41,7 @@
             <div class="about">
                 <h3>Over Mij</h3>
                 <p>
-                    Ik ben Tycho van Opstal, een student software developer aan het Grafisch Lyceum Rotterdam!
+                    Ik ben Tycho van Opstal, een student software developer aan het Grafisch Lyceum Rotterdam! xxxxxxxxxx
                     Mijn passie voor technologie zorgt ervoor dat geen uitdaging te groot is.
                     In mijn vrije tijd ben ik (meestal) bezig met allerlei projecten, zoals het ontwikkelen van websites en applicaties.
                     Maar ook het beheren van mijn eigen homelab waar ik linux servers draai, vooral voor het testen van mijn eigen projecten.

@@ -25,7 +25,7 @@
                 </div>
                 <div class="projectIconen">
                     <div class="project nodejs sql plesk">
-                        <a href="projecten.php?techniek=node">
+                        <a href="projecten.php?techniek=nodejs">
                             <img src="./img/node.png" width="90%" alt="node.js">
                             <p>
                                 Komkommer.eu

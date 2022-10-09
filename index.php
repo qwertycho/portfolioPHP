@@ -19,7 +19,7 @@
                 <h3>Back-end Developer</h3>
                 <div class="techniekIconen">
                     <div class="techniek">
-                        <a href="projecten.php?techniek=node">
+                        <a href="projecten.php?techniek=nodejs">
                             <img src="./img/node.png" width="90%" alt="node.js">
                         </a>
                     </div>

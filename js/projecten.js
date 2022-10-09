@@ -1,7 +1,7 @@
 function filter(e){
     console.log(e);
-    var projecten = document.getElementsByClassName("project");
-    for(var i = 0; i < projecten.length; i++){
+    let projecten = document.getElementsByClassName("project");
+    for(let i = 0; i < projecten.length; i++){
         if(projecten[i].classList.contains(e)){
             projecten[i].style.display = "flex";
         }else{
@@ -9,3 +9,17 @@ function filter(e){
         }
     }
 }
+
+function urlFilter(){
+    let url = window.location.href;
+    let urlArray = url.split("=");
+    let param = urlArray[urlArray.length - 1];
+    console.log(param);
+    if(param != "undefined" && !param.includes("projecten")){
+        filter(param);
+    }
+}
+
+urlFilter();
+
+

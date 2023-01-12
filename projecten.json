@@ -3,31 +3,74 @@
     "projecten": [
         {
             "naam": "project1",
-            "omschrijving": "project1 omschrijving",
+            "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
             "techniek": "php",
-            "link": "http://www.google.com",
-            "img": "php.png"
+            "techniekImg": "php.png",
+            "projectLink": "project.php?project=project1",
+            "github": "#",
+            "productLink": "#",
+            "images": [
+                "tycho.png"
+            ]
         },
-        {
+         {
             "naam": "project2",
-            "omschrijving": "project2 omschrijving",
-            "techniek": "c#",
-            "link": "http://www.google.com",
-            "img": "cSharp.png"
+            "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
+            "techniek": "javascript",
+            "techniekImg": "node.png",
+            "projectLink": "project.php?project=project2",
+            "github": "#",
+            "productLink": "#",
+            "images": [
+                "tycho.png",
+                "tycho.png"
+            ]
         },
-        {
+         {
             "naam": "project3",
-            "omschrijving": "project3 omschrijving",
+            "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
             "techniek": "nodejs",
-            "link": "http://www.google.com",
-            "img": "node.png"
+            "techniekImg": "node.png",
+            "projectLink": "project.php?project=project3",
+            "github": "#",
+            "productLink": "#",
+            "images": [
+                "tycho.png",
+                "tycho.png",
+                "tycho.png"
+            ]
         },
-        {
+         {
             "naam": "project4",
-            "omschrijving": "project4 omschrijving",
+            "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
+            "techniek": "c#",
+            "techniekImg": "cSharp.png",
+            "projectLink": "project.php?project=project4",
+            "github": "#",
+            "productLink": "#",
+            "images": [
+                "tycho.png",
+                "tycho.png",
+                "tycho.png",
+                "tycho.png"
+            ]
+        },
+         {
+            "naam": "project5",
+            "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
             "techniek": "linux",
-            "link": "http://www.google.com",
-            "img": "tux.png"
+            "techniekImg": "tux.png",
+            "projectLink": "project.php?project=project5",
+            "github": "#",
+            "productLink": "#",
+            "images": [
+                "tycho.png",
+                "tycho.png",
+                "tycho.png",
+                "tycho.png",
+                "tycho.png"
+            ]
         }
+       
     ]
 }

@@ -56,9 +56,9 @@
                     <?php
                         foreach ($projecten as $project => $value) {
                             echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='" . $value['techniek'] . " all'>";
-                            echo "<a class='align-middle' href='" . $value['link'] . "'>";
+                            echo "<a class='align-middle' href='" . $value['projectLink'] . "'>";
                             echo "<div class='inner-project'>";
-                            echo "<img class='img-fluid w-50' src='./img/" . $value['img'] . "' alt='" . $value['img'] . "'>";
+                            echo "<img class='img-fluid w-50' src='./img/" . $value['techniekImg'] . "' alt='" . $value['techniekImg'] . "'>";
                             echo "<p class='project-titel'> " . $value['naam'] . "</p>";
                             echo "</div>";
                             echo "</a>";

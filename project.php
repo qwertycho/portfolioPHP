@@ -16,7 +16,7 @@
 
 <?php
 foreach ($projecten as $project => $value) {
-    if ($value['naam'] == $_GET['project']) {
+    if ($value['ID'] == $_GET['project']) {
         $selectedProject = $value;
     }
 }
@@ -36,7 +36,7 @@ foreach ($projecten as $project => $value) {
             <main>
 
                 <h3 class="text-center">
-                    <?php echo $selectedProject['naam'] ?>
+                    <?php echo $selectedProject['projectNaam'] ?>
                 </h3>
 
                 <div class="container">

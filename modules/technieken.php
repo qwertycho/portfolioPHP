@@ -1,8 +1,10 @@
 <?php
 
+require("modules/fetch.php");
+
 $json = file_get_contents('./projecten.json');
 $json = json_decode($json, true);
 
-$technieken = $json['technieken'];
+$technieken = getTechnieken();
 
-$projecten = $json['projecten'];
+$projecten = getProjecten();

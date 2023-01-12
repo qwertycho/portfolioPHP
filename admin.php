@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,48 +5,71 @@
     <title>Tycho van Opstal</title>
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/projecten.css" rel="stylesheet">
+    <script src="./js/projecten.js" defer></script>
 
     <?php include './components/bootstrap.html'; ?>
 </head>
-<body>
-    <header>
-        <h1>Tycho van Opstal</h1>
-        <h2>Admin</h2>
-    </header>
+
+<?php require("modules/technieken.php") ?>
+
+
+<header class="bg-dark">
+    <h1 class="text-white text-center">Tycho van Opstal</h1>
+    <h2 class="text-white text-center">Admin</h2>
     <?php include './components/nav.html'; ?>
-    <main>
-        <div class="container">
-            <form class="projectForm" id="projectForm">
-                <input type="text" name="projectTitel" id="projectTitel" placeholder="Project naam">
+</header>
 
-                <select name="techniekSelector" id="projectTechniek" class="techniekSelector">
-                    <option value="geen">null</option>
-                </select>
-                <select name="techniekSelector" id="projectTechniek" class="techniekSelector">
-                    <option value="geen">null</option>
-                </select>
-                <select name="techniekSelector" id="projectTechniek" class="techniekSelector">
-                    <option value="geen">null</option>
-                </select>
+<main>
+    <div class="container">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input class="form-control" type="hidden" name="action" value="project">
+            <input class="form-control" type="text" name="projectNaam" placeholder="Project naam">
+
+            <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector">
+                <?php
+                echo "<option value='null'>techniek 1</option>";
+                foreach ($technieken as $val => $value) {
+                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
+                }
+                ?>
+            </select>
+            <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector">
+                <?php
+                echo "<option value='null'>techniek 2</option>";
+                foreach ($technieken as $val => $value) {
+                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
+                }
+                ?>
+            </select>
+            <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector">
+                <?php
+                echo "<option value='null'>techniek 3</option>";
+                foreach ($technieken as $val => $value) {
+                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
+                }
+                ?>
+            </select>
 
 
-                <input type="text" name="projectLink" id="projectLink" placeholder="Project link">
-                <input type="text" name="projectRepo" id="projectRepo" placeholder="Project repo link">
-                <input type="text" name="projectImg" id="projectImg" placeholder="Project img">
-                <input type="text" name="projectBeschrijving" id="projectOmschrijving" placeholder="Project beschrijving">
-                <input type="date" name="projectDatum" id="projectDatum" placeholder="Project datum">
-                <input type="date" name="projectEindDatum" id="projectEindDatum" placeholder="Project eind datum">
-                <button type="submit" id="projectFormSubmit">Submit</button>     
-            </form>
+            <input class="form-control" type="text" name="productLink" placeholder="Product link">
+            <input class="form-control" type="text" name="github" placeholder="Project github link">
+            <input class="form-control" type="text" name="omschrijving" placeholder="Project omschrijving">
+            <input class="form-control" type="date" name="projectDatum" placeholder="Project datum">
+            <input class="form-control" type="date" name="projectEindDatum" placeholder="Project eind datum">
+            <input class="form-control" type="file" multiple accept="image/" name="afbeeldingen[]">
 
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
-                <input type="hidden" name="action" value="techniek">
-                <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="text" name="techniek"  placeholder="techniek">
-                <input type="submit" value="Upload Image" name="submit">
+            <button class="form-control" type="submit" id="projectFormSubmit">Submit</button>
 
-        </div>
-    </main>
+        </form>
+
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input class="form-control" type="hidden" name="action" value="techniek">
+            <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
+            <input class="form-control" type="text" name="techniek" placeholder="techniek">
+            <input class="form-control" type="submit" value="Upload Image" name="submit">
+    </div>
+    
+</main>
 </body>
+
 </html>

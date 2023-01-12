@@ -5,10 +5,8 @@ error_reporting(E_ALL);
 
 $data = $_GET["action"];
 
-$servername = "85.184.251.4";
-$username = "portfolio";
-$password = "VierenVeertig26";
-$dbname = "portfolio";
+require("./modules/secret.php");
+require("modules/fetch.php");
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -20,14 +18,14 @@ if ($conn->connect_error) {
 } else{
   if($data == "project"){
     $sql = "SELECT * FROM projecten";
-  } else if($data == "techniek"){
-    $sql = "SELECT techniekNaam, techniekClass FROM technieken WHERE projectID = 0";
+  } else if($data == "technieken"){
+
+    print_r(getTechnieken());
+
   } else {
     echo "No action";
   }
 
-  $result = $conn->query($sql);
-  echo json_encode($result->fetch_all(MYSQLI_ASSOC));
 
 }
 $conn->close();

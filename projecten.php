@@ -13,7 +13,8 @@
     <?php include './components/bootstrap.html'; ?>
 </head>
 
-<?php require("./modules/technieken.php") ?>
+<?php require("modules/technieken.php") ?>
+
 
 
 <body>
@@ -37,10 +38,13 @@
                             Alle technieken
                         </button>
 
+                        
+
                         <select onchange="setFilter(this.value)" >
+                            <option value="all">Alle technieken</option>
                             <?php
                                 foreach ($technieken as $val => $value) {
-                                    echo "<option value='$value'>$value</option>";
+                                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
                                 }
                             ?>
                         </select>
@@ -54,6 +58,11 @@
                 <div class="row">
                     
                     <?php
+
+    echo "<pre>";
+    print_r($projecten);
+    echo "</pre>";
+
                         foreach ($projecten as $project => $value) {
                             echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='"  ;
                             
@@ -63,10 +72,10 @@
 
                             echo " all'>";
 
-                            echo "<a class='align-middle' href='" . $value['projectLink'] . "'>";
+                            echo "<a class='align-middle' href='project.php?project=" . $value['ID'] . "'>";
                             echo "<div class='inner-project'>";
                             echo "<img class='img-fluid w-50' src='./img/" . $value['techniekImg'] . "' alt='" . $value['techniekImg'] . "'>";
-                            echo "<p class='project-titel'> " . $value['naam'] . "</p>";
+                            echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
                             echo "</div>";
                             echo "</a>";
                             echo "</div>";

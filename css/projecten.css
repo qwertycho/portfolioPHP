@@ -1,61 +1,18 @@
 /* main */
 
 main{
-    width: 100%;
-    height: 100%;
-    display: flex; 
-    flex-direction: column;
-    flex: 1;
+    min-height: 100vh;
     background-image: url("../img/hero.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-main .container{
-    width: 100%;
+
+.inner-project{
+    width: 50%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
-    color: var(--white);
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    border-radius: 15%;
 }
-
-main .projecten{
-    width: 100%;
-    text-align: center;
-}
-
-main .project a{
-    color: var(--black);
-    text-decoration: none;
-}
-
-main .projecten .projectIconen{
-    width: 60%;
-    margin-left: 20%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 50px;
-}
-
-main .projecten .projectIconen .project{
-    text-align: center;
-    color: var(--black);
-    border-radius: 10%;
-    box-shadow: 8px 8px 25px -10px rgba(0,0,0,1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-main .projecten .projectIconen .project img{
-   width: 80%;
-}
-
-/* main .projecten .projectIconen .nodejs{
-    display: none;
-} */
-
-/* einde main */

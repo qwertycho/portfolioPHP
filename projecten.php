@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,76 +9,70 @@
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/projecten.css" rel="stylesheet">
     <script src="./js/projecten.js" defer></script>
-</head>
-<body>
-    <header>
-        <h1>Tycho van Opstal</h1>
-        <h2>Software Developer</h2>
-    </header>
-    <?php include './components/nav.html'; ?>
-    <main>
-        <div class="container">
-            <div class="projecten">
-                <h3>Filter</h3>
-                <div class="filter">
-                    <button class="filterButton" id="project" onclick="filter('project')">alle</button>
-                    <button class="filterButton" id="nodejs" onclick="filter('nodejs')">node.js</button>
-                </div>
-                <div class="projectIconen">
-                    <div class="project nodejs sql plesk">
-                        <a href="projecten.php?techniek=nodejs">
-                            <img src="./img/node.png" width="90%" alt="node.js">
-                            <p>
-                                Komkommer.eu
-                            </p>
-                            <p>
-                                Node.js | SQL | Plesk
-                            </p>
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="projecten.php?techniek=php">
-                            <img src="./img/php.png" width="90%" alt="php">
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="projecten.php?techniek=csharp">
-                            <img src="./img/cSharp.png" width="90%" alt="c#">
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="projecten.php?techniek=linux">
-                            <img src="./img/tux.png" width="90%" alt="Linux">
-                        </a>
-                    </div>
 
-                    <div class="project">
-                        <a href="projecten.php?techniek=node">
-                            <img src="./img/node.png" width="90%" alt="node.js">
-                            <p>
-                                Komkommer.eu
-                            </p>
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="projecten.php?techniek=php">
-                            <img src="./img/php.png" width="90%" alt="php">
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="projecten.php?techniek=csharp">
-                            <img src="./img/cSharp.png" width="90%" alt="c#">
-                        </a>
-                    </div>
-                    <div class="project">
-                        <a href="projecten.php?techniek=linux">
-                            <img src="./img/tux.png" width="90%" alt="Linux">
-                        </a>
+    <?php include './components/bootstrap.html'; ?>
+</head>
+
+<?php require("./modules/technieken.php") ?>
+
+
+<body>
+
+    <header class="bg-dark">
+        <h1 class="text-white text-center">Tycho van Opstal</h1>
+        <h2 class="text-white text-center">Software Developer</h2>
+        <?php include './components/nav.html'; ?>
+    </header>
+
+    <main>
+        <div>
+            <h3 class="text-center">
+                Filter
+            </h3>
+            
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-">
+                        <button onclick="urlFilter('techniek=all')">
+                            Alle technieken
+                        </button>
+
+                        <select onchange="setFilter(this.value)" >
+                            <?php
+                                foreach ($technieken as $val => $value) {
+                                    echo "<option value='$value'>$value</option>";
+                                }
+                            ?>
+                        </select>
+
                     </div>
                 </div>
             </div>
-            
+
+            <div class="container">
+
+                <div class="row">
+                    
+                    <?php
+                        foreach ($projecten as $project => $value) {
+                            echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='" . $value['techniek'] . " all'>";
+                            echo "<a class='align-middle' href='" . $value['link'] . "'>";
+                            echo "<div class='inner-project'>";
+                            echo "<img class='img-fluid w-50' src='./img/" . $value['img'] . "' alt='" . $value['img'] . "'>";
+                            echo "<p class='project-titel'> " . $value['naam'] . "</p>";
+                            echo "</div>";
+                            echo "</a>";
+                            echo "</div>";
+                        }
+                    ?>
+                    
+
+                </div>
+
+            </div>
         </div>
     </main>
+
 </body>
+
 </html>

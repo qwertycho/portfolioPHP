@@ -22,10 +22,15 @@ body{
 }
 
 main{
-  height: 100%;
+  min-height: 100%;
 }
 
 .technieken{
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10%;
+}
+
+.projecten{
+  min-width: 100vh;
+  padding-bottom: 10px;
 }

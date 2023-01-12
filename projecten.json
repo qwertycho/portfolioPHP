@@ -1,0 +1,33 @@
+{
+    "technieken": ["all", "javascript", "php", "nodejs", "c#", "linux"],
+    "projecten": [
+        {
+            "naam": "project1",
+            "omschrijving": "project1 omschrijving",
+            "techniek": "php",
+            "link": "http://www.google.com",
+            "img": "php.png"
+        },
+        {
+            "naam": "project2",
+            "omschrijving": "project2 omschrijving",
+            "techniek": "c#",
+            "link": "http://www.google.com",
+            "img": "cSharp.png"
+        },
+        {
+            "naam": "project3",
+            "omschrijving": "project3 omschrijving",
+            "techniek": "nodejs",
+            "link": "http://www.google.com",
+            "img": "node.png"
+        },
+        {
+            "naam": "project4",
+            "omschrijving": "project4 omschrijving",
+            "techniek": "linux",
+            "link": "http://www.google.com",
+            "img": "tux.png"
+        }
+    ]
+}

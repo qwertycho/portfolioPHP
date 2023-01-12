@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tycho van Opstal</title>
     <link href="./css/style.css" rel="stylesheet">
-    <script src="./js/admin.js" defer></script>
+    <link href="./css/projecten.css" rel="stylesheet">
+
+    <?php include './components/bootstrap.html'; ?>
 </head>
 <body>
     <header>
@@ -38,12 +40,13 @@
                 <input type="date" name="projectEindDatum" id="projectEindDatum" placeholder="Project eind datum">
                 <button type="submit" id="projectFormSubmit">Submit</button>     
             </form>
-            <form class="techniekForm" id="techniekForm">
-                <input type="text" name="techniekNaam" id="techniekNaam" placeholder="techniek naam">
-                <input type="text" name="techniekClass" id="techniekClass" placeholder="techniek klasse">
 
-                <button type="submit" id="techniekFormSubmit">Submit</button>     
-            </form>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input type="hidden" name="action" value="techniek">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="text" name="techniek"  placeholder="techniek">
+                <input type="submit" value="Upload Image" name="submit">
 
         </div>
     </main>

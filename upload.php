@@ -1,6 +1,7 @@
 <?php
 
-$data = json_decode(file_get_contents('php://input'), true);
+$data = $_POST;
+
 print_r($data);
 
 $servername = "85.184.251.4";
@@ -16,22 +17,50 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
   echo "Connection failed";
 } else {
+
   echo "Connection succesfull";
+
+  
   if($data["action"] == "project"){
     $sql = "INSERT INTO projecten (projectTitel, projectOmschrijving, projectDatum, projectEindDatum, projectUrl, projectRepo) VALUES ('".$data["titel"]."', '".$data['projectOmschrijving']."', '".$data['projectDatum']."', '".$data['projectEindDatum']."', '".$data['projectUrl']."', '".$data['projectRepo']."')";
     echo $sql;
   } else if($data["action"] == "techniek"){
-    $sql = "INSERT INTO technieken (techniekNaam, techniekClass) VALUES ('".$data["techniekNaam"]."','".$data["techniekClass"]."')";	
-    echo $sql;
+
+    $file = $_FILES["fileToUpload"];
+    $imgName = $file["name"];
+
+    var_dump($file);
+
+    // save the img to the server
+    $target_dir = "./img/";
+    $target_file = $file["tmp_name"];
+    $newName = time().".".getExtension($file["type"]);	
+
+    echo rename($file["tmp_name"], $target_dir.$newName);
+
+    $query = "INSERT INTO afbeeldingen (link) VALUES ('".$imgName."')";
+    echo mysqli_query($conn, $query);
+    $id = mysqli_insert_id($conn);
+
+
+
   } else {
     echo "No action";
   }
 
-  if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
 
 }
 $conn->close();
+
+function getExtension($type){
+  switch($type){
+    case "image/jpeg":
+      return "jpg";
+    case "image/png":
+      return "png";
+    case "image/gif":
+      return "gif";
+    default:
+      return "jpg";
+  }
+}

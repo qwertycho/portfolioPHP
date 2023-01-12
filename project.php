@@ -47,12 +47,16 @@ foreach ($projecten as $project => $value) {
                             <?php
 
 
-                            echo "<div class='links'>";
-                            echo "<a href='" . $selectedProject['productLink'] . "' target='_blank'>Link naar project</a>";
-                            echo "<a href='" . $selectedProject['github'] . "' target='_blank'>Link naar github</a>";
+                            echo "<div class='links bg-dark p-2'>";
+                            echo "<a class='link' href='" . $selectedProject['productLink'] . "' target='_blank'>Link naar project</a>";
+                            echo "<a class='link' href='" . $selectedProject['github'] . "' target='_blank'>Link naar github</a>";
                             echo "</div>";
 
-                            echo "<ul> <li>" . $selectedProject['techniek'] . "</li> </ul>";
+
+                                foreach ($selectedProject['technieken'] as $techniek => $value) {
+                                    echo "<ul> <li>" . $value . "</li> </ul>";
+                                }
+
 
                             echo "<p>" . $selectedProject['omschrijving'] . "</p>";
 

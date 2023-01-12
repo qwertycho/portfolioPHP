@@ -4,7 +4,7 @@
         {
             "naam": "project1",
             "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
-            "techniek": "php",
+            "technieken": ["javascript", "linux"],
             "techniekImg": "php.png",
             "projectLink": "project.php?project=project1",
             "github": "#",
@@ -16,7 +16,7 @@
          {
             "naam": "project2",
             "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
-            "techniek": "javascript",
+            "technieken": ["javascript", "php"],
             "techniekImg": "node.png",
             "projectLink": "project.php?project=project2",
             "github": "#",
@@ -29,7 +29,7 @@
          {
             "naam": "project3",
             "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
-            "techniek": "nodejs",
+            "technieken": ["c#", "linux"],
             "techniekImg": "node.png",
             "projectLink": "project.php?project=project3",
             "github": "#",
@@ -43,7 +43,7 @@
          {
             "naam": "project4",
             "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
-            "techniek": "c#",
+            "technieken": ["javascript", "nodejs", "c#"],
             "techniekImg": "cSharp.png",
             "projectLink": "project.php?project=project4",
             "github": "#",
@@ -58,7 +58,7 @@
          {
             "naam": "project5",
             "omschrijving": "project1 omschrijving Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, obcaecati. Rem voluptate aperiam harum corporis praesentium provident sapiente cupiditate quas deserunt exercitationem aut atque ab nostrum velit voluptatum, consequatur ducimus? ",
-            "techniek": "linux",
+            "technieken": ["linux"],
             "techniekImg": "tux.png",
             "projectLink": "project.php?project=project5",
             "github": "#",

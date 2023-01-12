@@ -59,10 +59,6 @@
                     
                     <?php
 
-    echo "<pre>";
-    print_r($projecten);
-    echo "</pre>";
-
                         foreach ($projecten as $project => $value) {
                             echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='"  ;
                             

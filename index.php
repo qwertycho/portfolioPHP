@@ -14,7 +14,8 @@
 </head>
 
 <body>
-    
+<div class="main vh-100">
+
     <header class="bg-dark">
         <h1 class="text-white text-center">Tycho van Opstal</h1>
         <h2 class="text-white text-center">Software Developer</h2>
@@ -31,7 +32,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-sm center">
+                <div class="col-sm text-center">
                     <img class="img-fluid w-75" src="./img/tycho.png" alt="Tycho">
                 </div>
                 <div class="col-sm">
@@ -50,8 +51,17 @@
             </div>
         </div>
 
-    </main>
 
+    </main>
+</div>
+
+<article class="bg-dark p-5 vh-100">
+
+    <div class="techniekContainer">
+                <?php include './components/technieken.html'; ?>
+    </div>
+
+</article>
 
 </body>
 

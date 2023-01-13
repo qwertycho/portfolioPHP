@@ -75,7 +75,7 @@ function insertProject($data, $techniekImg){
   return mysqli_insert_id($conn);
 }
 
-function InsertPTechnieken($technieken, $id){
+function insertPTechnieken($technieken, $id){
   global $conn;
   foreach($technieken as $techniek){
     $query = "INSERT INTO projectenPivotTechnieken (projectID, techniekID) VALUES ('".$id."', '".$techniek."')";

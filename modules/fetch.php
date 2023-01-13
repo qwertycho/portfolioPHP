@@ -9,14 +9,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 function getTechnieken(){
     $sql = "SELECT techniek, link FROM technieken INNER JOIN afbeeldingen ON technieken.afbeeldingID = afbeeldingen.id";
-
     $result = mysqli_query($GLOBALS["conn"], $sql);
 
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
 function getProjecten(){
-    // one row per record
     $sql = "SELECT projecten.ID, projectNaam, omschrijving, github, productLink, afbeeldingen.link as techniekImg
     FROM projecten
     INNER JOIN afbeeldingen ON projecten.techniekImg = afbeeldingen.ID
@@ -26,30 +24,12 @@ function getProjecten(){
     $projecten = $projecten->fetch_all(MYSQLI_ASSOC);
 
     foreach ($projecten as $project => $value) {
-        $sql = "SELECT techniekID FROM projecten
-        JOIN projectenPivotTechnieken ON projecten.ID = projectenPivotTechnieken.projectID
-        WHERE projecten.ID = ".$value['ID'];
-
-        $technieken = mysqli_query($GLOBALS["conn"], $sql);
-        $technieken = $technieken->fetch_all(MYSQLI_ASSOC);
-
-        $sql = "SELECT link FROM afbeeldingen
-        JOIN projectenPivotAfbeeldingen ON afbeeldingen.ID = projectenPivotAfbeeldingen.afbeeldingID
-        WHERE projectenPivotAfbeeldingen.projectID = ".$value['ID'];
-
-        $images = mysqli_query($GLOBALS["conn"], $sql);
-        $images = $images->fetch_all(MYSQLI_ASSOC);
 
         $projecten[$project]['technieken'] = [];
         $projecten[$project]['images'] = [];
 
-        foreach ($technieken as $value) {
-            array_push($projecten[$project]['technieken'], $value['techniekID']);
-        }
-
-        foreach ($images as $value) {
-            array_push($projecten[$project]['images'], $value['link']);
-        }
+        $projecten[$project]['technieken'] = getTechniekenFromProject($value['ID']);
+        $projecten[$project]['images'] = getAfbeeldingenFromProject($value['ID']);
 
     }
 
@@ -62,4 +42,37 @@ function getProject($id){
     $result = mysqli_query($GLOBALS["conn"], $sql);
 
     return $result->fetch_all(MYSQLI_ASSOC);
+}
+
+function getTechniekenFromProject($ID){
+    $sql = "SELECT techniekID FROM projecten
+    JOIN projectenPivotTechnieken ON projecten.ID = projectenPivotTechnieken.projectID
+    WHERE projecten.ID = ".$ID;
+
+    $technieken = mysqli_query($GLOBALS["conn"], $sql);
+    $technieken = $technieken->fetch_all(MYSQLI_ASSOC);
+
+    $arr = [];
+
+    foreach ($technieken as $value) {
+        array_push($arr, $value['techniekID']);
+    }
+
+    return $arr;
+}
+
+function getAfbeeldingenFromProject($ID){
+    $sql = " SELECT link FROM projectenPivotAfbeeldingen
+    left JOIN afbeeldingen ON afbeeldingen.ID = projectenPivotAfbeeldingen.afbeeldingID
+    WHERE projectenPivotAfbeeldingen.projectID = ".$ID;
+
+    $result = mysqli_query($GLOBALS["conn"], $sql);
+
+    $images = [];
+    
+    foreach ($result->fetch_all(MYSQLI_ASSOC) as $value) {
+        array_push($images, $value['link']);
+    }
+
+    return $images;
 }

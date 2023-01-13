@@ -6,6 +6,9 @@ print_r($data);
 echo "<br>";
 
 require("./modules/secret.php");
+require("./modules/auth.php");
+
+isLoggedIn();
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,15 +25,6 @@ if ($conn->connect_error) {
   
   if($data["action"] == "project"){
 
-    echo "<pre>";
-    var_dump($_POST["technieken"]);
-    echo "</pre>";
-
-    echo "<pre>";
-    var_dump($_POST);
-    echo "</pre>";
-
-
   checkIfSet($_POST);
 
     $technieken = (checkIfTechniekSet($_POST["technieken"]));
@@ -38,26 +32,12 @@ if ($conn->connect_error) {
     $queryImg = "select ID from afbeeldingen inner join technieken on technieken.afbeeldingID = afbeeldingen.ID where techniek = '".$technieken[0]."'";
     $techniekImg = mysqli_fetch_assoc(mysqli_query($conn, $queryImg))["ID"];
 
-    $query = "INSERT INTO projecten (projectNaam, omschrijving, techniekImg, github, productLink) 
-    VALUES ('".$data["projectNaam"]."', '".$data["omschrijving"]."', '".$techniekImg."', '".$data["github"]."', '".$data["productLink"]."')";
-    echo mysqli_query($conn, $query);
-    $id = mysqli_insert_id($conn);
+    $projectID = insertProject($data, $techniekImg);
 
-    foreach($technieken as $techniek){
-      $query = "INSERT INTO projectenPivotTechnieken (projectID, techniekID) VALUES ('".$id."', '".$techniek."')";
-      mysqli_query($conn, $query);
-    }
+    insertPTechnieken($technieken, $projectID);
 
     $IDS = saveImages($_FILES["afbeeldingen"]);
-    foreach($IDS as $imgID){
-      echo $imgID;
-      $query = "INSERT INTO projectenPivotAfbeeldingen (projectID, afbeeldingID) VALUES ('".$id."', '".$imgID."')";
-      mysqli_query($conn, $query);
-    }
-
-
-
-
+    insertPAfbeeldingen($IDS, $projectID);
 
   } else if($data["action"] == "techniek"){
 
@@ -86,6 +66,31 @@ if ($conn->connect_error) {
 
 }
 $conn->close();
+
+function insertProject($data, $techniekImg){
+  global $conn;
+  $query = "INSERT INTO projecten (projectNaam, omschrijving, techniekImg, github, productLink) 
+  VALUES ('".$data["projectNaam"]."', '".$data["omschrijving"]."', '".$techniekImg."', '".$data["github"]."', '".$data["productLink"]."')";
+  echo mysqli_query($conn, $query);
+  return mysqli_insert_id($conn);
+}
+
+function InsertPTechnieken($technieken, $id){
+  global $conn;
+  foreach($technieken as $techniek){
+    $query = "INSERT INTO projectenPivotTechnieken (projectID, techniekID) VALUES ('".$id."', '".$techniek."')";
+    mysqli_query($conn, $query);
+  }
+}
+
+function insertPAfbeeldingen($IDS, $id){
+  global $conn;
+  foreach($IDS as $imgID){
+    echo $imgID;
+    $query = "INSERT INTO projectenPivotAfbeeldingen (projectID, afbeeldingID) VALUES ('".$id."', '".$imgID."')";
+    mysqli_query($conn, $query);
+  }
+}
 
 function saveImages($files){
   $IDS = new ArrayObject();

@@ -13,8 +13,8 @@
     <?php include './components/bootstrap.html'; ?>
 </head>
 
-<?php require("modules/technieken.php") ?>
-
+<?php require("modules/fetch.php") ?>
+<?php $projecten = getProjecten(); ?>
 
 
 <body>

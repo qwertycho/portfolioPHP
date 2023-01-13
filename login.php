@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tycho van Opstal</title>
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <title>Login</title>
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/projecten.css" rel="stylesheet">
     <?php include './components/bootstrap.html'; ?>

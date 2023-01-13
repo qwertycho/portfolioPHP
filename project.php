@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
+
+<?php require("modules/fetch.php") ?>
+<?php 
+
+if (isset($_GET['project'])) {
+    $selectedProject = getProject($_GET['project']);
+} else {
+    header("Location: ./projecten.php");
+}
+
+?>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tycho van Opstal</title>
+    <meta name="description" content="<?php echo $selectedProject['omschrijving'] ?>">
+    <meta name="keywords" content="Tycho van Opstal, projecten, portfolio, software developer">
+    <meta name="author" content="Tycho van Opstal">
+
+    <title>
+        <?php echo $selectedProject["projectNaam"] ?>
+    </title>
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/projecten.css" rel="stylesheet">
 
     <?php include './components/bootstrap.html'; ?>
 </head>
 
-<?php require("modules/fetch.php") ?>
-<?php $projecten = getProjecten(); ?>
 
-<?php
-foreach ($projecten as $project => $value) {
-    if ($value['ID'] == $_GET['project']) {
-        $selectedProject = $value;
-    }
-}
-?>
+
+
 
 <body>
 

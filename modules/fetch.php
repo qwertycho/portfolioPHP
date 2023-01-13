@@ -38,10 +38,17 @@ function getProjecten(){
 
 function getProject($id){
     $sql = "SELECT * FROM projecten WHERE ID = ".$id;
-
     $result = mysqli_query($GLOBALS["conn"], $sql);
 
-    return $result->fetch_all(MYSQLI_ASSOC);
+    $result = $result->fetch_all(MYSQLI_ASSOC);
+    $project = $result[0];
+    $project['technieken'] = [];
+    $project['images'] = [];
+
+    $project['technieken'] = getTechniekenFromProject($id);
+    $project['images'] = getAfbeeldingenFromProject($id);
+
+    return $project;
 }
 
 function getTechniekenFromProject($ID){

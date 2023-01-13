@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neem contact op met de software developer Tycho van Opstal">
+    <meta name="keywords" content="Tycho van Opstal, contact, email, portfolio, software developer">
+    <meta name="author" content="Tycho van Opstal">
+
     <title>Tycho van Opstal</title>
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/projecten.css" rel="stylesheet">

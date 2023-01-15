@@ -37,18 +37,33 @@ function getProjecten(){
 }
 
 function getProject($id){
-    $sql = "SELECT * FROM projecten WHERE ID = ".$id;
-    $result = mysqli_query($GLOBALS["conn"], $sql);
+    try {
+        $id = mysqli_real_escape_string($GLOBALS["conn"], $id);
+        
+        if(!is_numeric($id)){
+            throw new Exception("ID is not a number");
+        }
 
-    $result = $result->fetch_all(MYSQLI_ASSOC);
-    $project = $result[0];
-    $project['technieken'] = [];
-    $project['images'] = [];
+        $sql = "SELECT * FROM projecten WHERE ID = ".$id;
+        $result = mysqli_query($GLOBALS["conn"], $sql);
 
-    $project['technieken'] = getTechniekenFromProject($id);
-    $project['images'] = getAfbeeldingenFromProject($id);
+        if($result->num_rows == 0){
+            throw new Exception("No project found");
+        }
 
-    return $project;
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        $project = $result[0];
+        $project['technieken'] = [];
+        $project['images'] = [];
+
+        $project['technieken'] = getTechniekenFromProject($id);
+        $project['images'] = getAfbeeldingenFromProject($id);
+
+        return $project;
+        
+    } catch (Exception $e) {
+        header("Location: projecten.php");
+    }
 }
 
 function getTechniekenFromProject($ID){

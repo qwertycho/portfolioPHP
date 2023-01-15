@@ -17,6 +17,7 @@
 <?php isLoggedIn(); ?>
 
 <?php $technieken = getTechnieken(); ?>
+<?php $projecten = getProjecten(); ?>
 
 
 <header class="bg-dark">
@@ -73,6 +74,17 @@
             <input class="form-control" type="file" name="afbeelding" required>
             <input class="form-control" type="text" name="techniek" placeholder="techniek" required>
             <input class="form-control" type="submit" value="Upload Image" name="submit">
+        </form>
+
+        <form>
+            <?php 
+
+                foreach ($projecten as $val => $value) {
+                    echo "<a href='delete.php?id=$value[ID]'>$value[projectNaam]</a>";
+                }
+
+            ?>
+
     </div>
     
 </main>

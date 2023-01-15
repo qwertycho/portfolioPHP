@@ -36,15 +36,11 @@ function getProjecten(){
     return $projecten;
 }
 
-function getProject($id){
+function getProject($projectNaam){
     try {
-        $id = mysqli_real_escape_string($GLOBALS["conn"], $id);
-        
-        if(!is_numeric($id)){
-            throw new Exception("ID is not a number");
-        }
+        $projectNaam = mysqli_real_escape_string($GLOBALS["conn"], $projectNaam);
 
-        $sql = "SELECT * FROM projecten WHERE ID = ".$id;
+        $sql = "SELECT * FROM projecten WHERE projectNaam = ". '"'.$projectNaam .'"';
         $result = mysqli_query($GLOBALS["conn"], $sql);
 
         if($result->num_rows == 0){
@@ -56,8 +52,8 @@ function getProject($id){
         $project['technieken'] = [];
         $project['images'] = [];
 
-        $project['technieken'] = getTechniekenFromProject($id);
-        $project['images'] = getAfbeeldingenFromProject($id);
+        $project['technieken'] = getTechniekenFromProject($result[0]['ID']);
+        $project['images'] = getAfbeeldingenFromProject($result[0]['ID']);
 
         return $project;
         

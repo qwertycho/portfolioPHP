@@ -5,7 +5,9 @@
 <?php 
 
 if (isset($_GET['project'])) {
-    $selectedProject = getProject($_GET['project']);
+    $projectNaam = $_GET['project'];
+    $projectNaam = str_replace("_", " ", $projectNaam);
+    $selectedProject = getProject($projectNaam);
 } else {
     header("Location: ./projecten.php");
 }
@@ -28,10 +30,6 @@ if (isset($_GET['project'])) {
 
     <?php include './components/bootstrap.html'; ?>
 </head>
-
-
-
-
 
 <body>
 
@@ -63,10 +61,11 @@ if (isset($_GET['project'])) {
                             echo "<a class='link' href='" . $selectedProject['github'] . "' target='_blank'>Link naar github</a>";
                             echo "</div>";
 
-
+                            echo "<ul class='list-inline text-center'>";
                                 foreach ($selectedProject['technieken'] as $techniek => $value) {
-                                    echo "<ul> <li>" . $value . "</li> </ul>";
+                                    echo "<li class='list-inline-item' >" . $value . "</li>";
                                 }
+                            echo "</ul>";
 
 
                             echo "<p>" . $selectedProject['omschrijving'] . "</p>";

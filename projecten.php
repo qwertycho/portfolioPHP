@@ -72,14 +72,13 @@
                             }
 
                             echo " all'>";
-
-                            echo "<a class='align-middle' href='project.php?project=" . $value['ID'] . "'>";
-                            echo "<div class='inner-project'>";
-                            echo "<img class='img-fluid w-50' src='./img/" . $value['techniekImg'] . "' alt='" . $value['techniekImg'] . "'>";
-                            echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
-                            echo "</div>";
-                            echo "</a>";
-                            echo "</div>";
+                                echo "<a class='align-middle' href='project.php?project=" .  str_replace(" ", "_", $value['projectNaam']) . "'>";
+                                echo "<div class='inner-project'>";
+                                echo "<img class='img-fluid w-50' src='./img/" . $value['techniekImg'] . "' alt='" . $value['techniekImg'] . "'>";
+                                echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
+                                echo "</div>";
+                                echo "</a>";
+                                echo "</div>";
                         }
                     ?>
                     

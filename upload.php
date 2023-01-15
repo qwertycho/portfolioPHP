@@ -7,8 +7,11 @@ echo "<br>";
 
 require("./modules/secret.php");
 require("./modules/auth.php");
+require("./modules/schaler.php");
 
 isLoggedIn();
+
+$schaler = new schaler(500, 500);
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -44,7 +47,7 @@ if ($conn->connect_error) {
     isImgUploaded();
     isTechniekSet();
 
-    $file = $_FILES["afbeeldingen"];
+    $file = $_FILES["afbeelding"];
     $imgName = $file["name"];
 
     // save the img to the server
@@ -54,10 +57,12 @@ if ($conn->connect_error) {
     rename($file["tmp_name"], $target_dir.$newName);
 
     $query = "INSERT INTO afbeeldingen (link) VALUES ('".$newName."')";
-    mysqli_query($conn, $query);
+    echo mysqli_query($conn, $query);
     $id = mysqli_insert_id($conn);
+    echo "het id is: ".$id;
 
-    mysqli_query($conn, $query);
+    $query = "INSERT INTO technieken (techniek, afbeeldingID) VALUES ('".$data["techniek"]."', '".$id."')";
+    echo mysqli_query($conn, $query);
 
   } else {
     echo "No action";
@@ -104,7 +109,13 @@ function saveImages($files){
      "error" => $files["error"][$i],
      "size" => $files["size"][$i]
    );
-   rename($file["tmp_name"], $target_dir.$file["name"]);
+
+  $resizedImg = $GLOBALS["schaler"]->scale($file["tmp_name"]);
+  $GLOBALS["schaler"]->saveImg($resizedImg, $target_dir.$file["name"], $file["type"]);
+  imagedestroy($resizedImg);
+    
+    
+  //  rename($file["tmp_name"], $target_dir.$file["name"]);
     $IDS->append(insertImage($file["name"]));
   }
   return $IDS;
@@ -130,7 +141,8 @@ function getExtension($type){
 }
 
 function isImgUploaded(){
-  if($_FILES["afbeeldingen"]["name"] == "" || $_FILES["afbeeldingen"] == null){
+  print_r($_FILES);
+  if($_FILES["afbeelding"]["name"] == "" || $_FILES["afbeelding"] == null){
     echo "No file";
     die();
   }

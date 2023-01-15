@@ -70,7 +70,7 @@
 
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <input class="form-control" type="hidden" name="action" value="techniek">
-            <input class="form-control" type="file" name="fileToUpload" id="fileToUpload" required>
+            <input class="form-control" type="file" name="afbeelding" required>
             <input class="form-control" type="text" name="techniek" placeholder="techniek" required>
             <input class="form-control" type="submit" value="Upload Image" name="submit">
     </div>

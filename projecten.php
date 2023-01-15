@@ -19,6 +19,7 @@
 
 <?php require("modules/fetch.php") ?>
 <?php $projecten = getProjecten(); ?>
+<?php $technieken = getTechnieken(); ?>
 
 
 <body>

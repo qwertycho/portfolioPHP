@@ -40,10 +40,10 @@
                 <div class="col-sm">
                     <div class="about">
                         <p class="text-justify">
-                            Ik ben Tycho van Opstal, een student software developer aan het Grafisch Lyceum Rotterdam! xxxxxxxxxx
+                            Ik ben Tycho van Opstal, een student software developer aan het Grafisch Lyceum Rotterdam!
                             Mijn passie voor technologie zorgt ervoor dat geen uitdaging te groot is.
                             In mijn vrije tijd ben ik (meestal) bezig met allerlei projecten, zoals het ontwikkelen van websites en applicaties.
-                            Maar ook het beheren van mijn eigen homelab waar ik linux servers draai, vooral voor het testen van mijn eigen projecten.
+                            Maar ook het beheren van mijn eigen homelab waar ik linux servers op draai, vooral voor het testen van mijn eigen projecten.
                             <br>
                             <br>
                             Als ik niet bezig ben met projecten houd ik mij bezig met (vr) games, 3d-printen of een van mijn vele andere hobbies.

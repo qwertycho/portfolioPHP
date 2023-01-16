@@ -1,0 +1,14 @@
+/* main */
+
+main{
+    min-height: 100vh;
+}
+
+
+.inner-project{
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    border-radius: 15%;
+}

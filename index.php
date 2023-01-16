@@ -3,18 +3,18 @@
 require('Router.php');
 
 
-$Router->any('/', function(){
-    require __DIR__ . '/views/index.php';
+$Router->setPublic('/public');
+
+$Router->render('/', 'index');
+$Router->render('/index', 'index');
+
+$Router->render('/contact', 'contact');
+
+$Router->match('/projecten', function(){
+    require __DIR__ . '/views/projecten.php';
 });
 
-$Router->any('/contact', function(){
-    require __DIR__ . '/views/contact.php';
-});
 
-$Router->params('/kip', function($params){
-    // boktor
-});
-
-$Router->route('/kip', function(){
-    require __DIR__ . '/views/index.php';
+$Router->catch('/', function(){
+    echo '404';
 });

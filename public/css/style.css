@@ -1,0 +1,134 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --grey: #636363;
+    --dark-grey: #383838;
+    --pop: #4436c0;
+
+  }
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--grey);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header{
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+header h1{
+    margin-top: 0;
+}
+
+header h2{
+    margin-bottom: 0;
+}
+
+/* navigatie */
+
+nav{
+    width: 100%;
+    min-height: 50px;
+    background-color: var(--dark-grey);
+}
+
+nav ul{
+    min-height: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul li{
+    display: inline-block;
+}
+
+nav a{
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+nav a:hover{
+    background-color: var(--pop);
+    border-radius: 8px;
+}
+
+
+/* einde navigatie */
+
+/* main */
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    flex: 1;
+    background-image: url("img/hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    color: var(--white);
+}
+
+main .technieken{
+    width: 40%;
+    text-align: center;
+}
+
+main .about{
+    width: 30%;
+    padding: 0 5% 0 5%;
+}
+
+main .technieken .techniekIconen{
+    width: 50%;
+    margin-left: 25%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+
+main .technieken .techniekIconen .techniek{
+    aspect-ratio: 1/1;
+    text-align: center;
+    color: var(--black);
+    border-radius: 10%;
+    box-shadow: 8px 8px 25px -10px rgba(0,0,0,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .technieken .techniekIconen .techniek img{
+   max-width: 90%;
+   max-height: 90%;
+}
+
+main .about .tycho{
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* einde main */

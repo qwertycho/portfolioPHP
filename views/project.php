@@ -25,8 +25,8 @@ if (isset($_GET['project'])) {
     <title>
         <?php echo $selectedProject["projectNaam"] ?>
     </title>
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="./css/projecten.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/projecten.css" rel="stylesheet">
 
     <?php include './components/bootstrap.html'; ?>
 </head>

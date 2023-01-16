@@ -8,8 +8,8 @@
     <meta name="robots" content="noindex, nofollow" />
     
     <title>Login</title>
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="./css/projecten.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/projecten.css" rel="stylesheet">
     <?php include './components/bootstrap.html'; ?>
 
 </head>

@@ -11,7 +11,7 @@
 
     <title>Tycho van Opstal</title>
     <link href="./css/style.css" rel="stylesheet">
-    <link href="./css/projecten.css" rel="stylesheet">
+    <!-- <link href="./css/projecten.css" rel="stylesheet"> -->
     <?php include './components/bootstrap.html'; ?>
 
 </head>
@@ -28,7 +28,7 @@
 
         <main>
 
-            <h3 class="text-center">
+        <h3 class="text-center m-3">
                 Contact
             </h3>
 

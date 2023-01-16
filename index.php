@@ -12,22 +12,25 @@
     <title>Tycho van Opstal</title>
     <link href="./css/style.css" rel="stylesheet">
     <?php include './components/bootstrap.html'; ?>
-
 </head>
 
 <body>
 <div class="main vh-min-100">
 
     <header class="bg-dark">
-        <h1 class="text-white text-center">Tycho van Opstal</h1>
-        <h2 class="text-white text-center">Software Developer</h2>
+        <h1 class="text-white text-center">
+            Tycho van Opstal
+        </h1>
+        <h2 class="text-white text-center">
+            Software Developer
+        </h2>
         <?php include './components/nav.html'; ?>
     </header>
 
 
     <main>
 
-        <h3 class="text-center">
+        <h3 class="text-center m-3">
             Over Mij
         </h3>
 

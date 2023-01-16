@@ -18,6 +18,9 @@
 
 <?php $technieken = getTechnieken(); ?>
 <?php $projecten = getProjecten(); ?>
+<body>
+<div class="main vh-min-100">
+
 
 
 <header class="bg-dark">
@@ -27,6 +30,11 @@
 </header>
 
 <main>
+
+        <h3 class="text-center m-3">
+            Adminpagina
+        </h3>
+
     <div class="container">
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <input class="form-control" type="hidden" name="action" value="project" >
@@ -80,7 +88,7 @@
             <?php 
 
                 foreach ($projecten as $val => $value) {
-                    echo "<a href='delete.php?id=$value[ID]'>$value[projectNaam]</a>";
+                    echo "<a href='delete.php?ID=$value[ID]'>$value[projectNaam] verwijderen</a>";
                 }
 
             ?>
@@ -88,6 +96,7 @@
     </div>
     
 </main>
+</div>
 </body>
 
 </html>

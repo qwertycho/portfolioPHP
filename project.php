@@ -44,7 +44,7 @@ if (isset($_GET['project'])) {
 
             <main>
 
-                <h3 class="text-center">
+            <h3 class="text-center m-3">
                     <?php echo $selectedProject['projectNaam'] ?>
                 </h3>
 

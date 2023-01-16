@@ -23,6 +23,7 @@
 
 
 <body>
+<div class="main vh-min-100">
 
     <header class="bg-dark">
         <h1 class="text-white text-center">Tycho van Opstal</h1>
@@ -32,7 +33,7 @@
 
     <main>
         <div>
-            <h3 class="text-center">
+        <h3 class="text-center m-3">
                 Filter
             </h3>
             
@@ -88,7 +89,7 @@
             </div>
         </div>
     </main>
-
+</div>
 </body>
 
 </html>

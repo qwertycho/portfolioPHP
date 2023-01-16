@@ -180,4 +180,4 @@ function checkIfTechniekSet($technieken){
   return $selectedTechnieken;
 }
 
-header("Location: admin.php");
+// header("Location: admin.php");

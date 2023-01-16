@@ -10,7 +10,7 @@
     <meta name="author" content="Tycho van Opstal">
 
     <title>Tycho van Opstal</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
     <!-- <link href="./css/projecten.css" rel="stylesheet"> -->
     <?php include './components/bootstrap.html'; ?>
 

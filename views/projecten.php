@@ -10,20 +10,18 @@
     <meta name="author" content="Tycho van Opstal">
 
     <title>Tycho van Opstal</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/projecten.css" rel="stylesheet">
-    <script src="js/projecten.js" defer></script>
+    <link href="/public/css/style.css" rel="stylesheet">
+    <link href="/public/css/projecten.css" rel="stylesheet">
+    <script src="/public/js/projecten.js" defer></script>
 
     <?php include './components/bootstrap.html'; ?>
 </head>
 
-<?php require("modules/fetch.php") ?>
-<?php $projecten = getProjecten(); ?>
-<?php $technieken = getTechnieken(); ?>
-
-
 <body>
 <div class="main vh-min-100">
+
+<?php global $projecten; ?>
+<?php global $technieken; ?>
 
     <header class="bg-dark">
         <h1 class="text-white text-center">Tycho van Opstal</h1>
@@ -49,8 +47,8 @@
                         <select onchange="setFilter(this.value)" >
                             <option value="all">Alle technieken</option>
                             <?php
-                                foreach ($technieken as $val => $value) {
-                                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
+                                foreach ($technieken as $techniek => $value) {
+                                    echo "<option value='" . $value['id'] ."'> " . $value['id'] . "</option>";
                                 }
                             ?>
                         </select>
@@ -75,7 +73,7 @@
                             echo " all'>";
                                 echo "<a class='align-middle' href='project.php?project=" .  str_replace(" ", "_", $value['projectNaam']) . "'>";
                                 echo "<div class='inner-project'>";
-                                echo "<img class='img-fluid w-50' src='./img/" . $value['techniekImg'] . "' alt='" . $value['techniekImg'] . "'>";
+                                echo "<img class='img-fluid w-50' src='/public/img/" . $value['techniekImg'] . "' alt='" . $value['techniekImg'] . "'>";
                                 echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
                                 echo "</div>";
                                 echo "</a>";

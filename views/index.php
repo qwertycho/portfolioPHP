@@ -38,7 +38,7 @@
             <div class="row">
 
                 <div class="col-sm text-center">
-                    <img class="img-fluid w-75" src="./img/tycho.png" alt="Tycho">
+                    <img class="img-fluid w-75" src="/public/img/tycho.jpg" alt="Tycho">
                 </div>
                 <div class="col-sm">
                     <div class="about">

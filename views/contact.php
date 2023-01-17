@@ -11,7 +11,7 @@
 
     <title>Tycho van Opstal</title>
     <link href="/public/css/style.css" rel="stylesheet">
-    <!-- <link href="./css/projecten.css" rel="stylesheet"> -->
+    <link href="/public/css/projecten.css" rel="stylesheet">
     <?php include './components/bootstrap.html'; ?>
 
 </head>
@@ -34,7 +34,7 @@
 
             <div class="container">
 
-                <form action="email.php" method="post">
+                <form action="/api/email.php" method="post">
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input name="emailAdres" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email" required>

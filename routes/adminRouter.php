@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 
 require_once("modules/secret.php");
 require_once("Router.php");
+require_once("modules/fetch.php");
+require_once("modules/newTechniek.php");
 
 global $keys;
 global $Router;
@@ -28,13 +30,18 @@ if( !isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true ){
     die();
 }
 
+$Router->match('/admin/newTechniek', function(){
+    $Techniek = new Techniek();
+    try{
+        $Techniek->newTechniek($_POST);
+    } catch(Exception $e){
+        echo $e->getMessage();
+    }
+});
 
+global $technieken;
+global $projecten;
+ 
+$technieken = getTechnieken();
 
 $Router->render('/admin', 'admin');
-
-$conn = new mysqli($keys->DB_HOST, $keys->DB_USER, $keys->DB_PASS, $keys->DB_NAME);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-

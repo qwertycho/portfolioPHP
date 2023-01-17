@@ -14,7 +14,7 @@
 <body>
 <div class="main vh-min-100">
 
-
+<?php global $technieken; ?>
 
 <header class="bg-dark">
     <h1 class="text-white text-center">Tycho van Opstal</h1>
@@ -29,7 +29,7 @@
         </h3>
 
     <div class="container">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="/admin/upload" method="post" enctype="multipart/form-data">
             <input class="form-control" type="hidden" name="action" value="project" >
             <input class="form-control" type="text" name="projectNaam" placeholder="Project naam" required>
 
@@ -60,31 +60,21 @@
 
 
             <input class="form-control" type="text" name="productLink" placeholder="Product link" required>
-            <input class="form-control" type="text" name="github" placeholder="Project github link" required>
-            <input class="form-control" type="text" name="omschrijving" placeholder="Project omschrijving" required>
-            <input class="form-control" type="date" name="projectDatum" placeholder="Project datum" required>
-            <input class="form-control" type="date" name="projectEindDatum" placeholder="Project eind datum" required>
+            <input class="form-control" type="text" name="github" placeholder="github link" required>
+            <textarea class="form-control" type="text" name="omschrijving" required placeholder="omschrijving"></textarea>
             <input class="form-control" type="file" multiple accept="image/" name="afbeeldingen[]" required>
 
             <button class="form-control" type="submit" id="projectFormSubmit">Submit</button>
 
         </form>
 
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="/admin/newTechniek" method="post" enctype="multipart/form-data">
             <input class="form-control" type="hidden" name="action" value="techniek">
-            <input class="form-control" type="file" name="afbeelding" required>
+            <input class="form-control" type="file" name="afbeelding" >
             <input class="form-control" type="text" name="techniek" placeholder="techniek" required>
             <input class="form-control" type="submit" value="Upload Image" name="submit">
         </form>
 
-        <form>
-            <?php 
-
-                foreach ($projecten as $val => $value) {
-                    echo "<a href='delete.php?ID=$value[ID]'>$value[projectNaam] verwijderen</a>";
-                }
-
-            ?>
 
     </div>
     

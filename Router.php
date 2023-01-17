@@ -12,6 +12,7 @@ class Router
         $request = $_SERVER['REQUEST_URI'];
         if ($request == $path) {
             $callback();
+            exit();
         }
     }
 
@@ -20,7 +21,7 @@ class Router
         $request = $_SERVER['REQUEST_URI'];
         if ($request == $path) {
             require __DIR__ . '/views/' . $file . '.php';
-            die();
+            exit();
         }
     }
 

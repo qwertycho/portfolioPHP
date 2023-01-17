@@ -6,8 +6,6 @@ error_reporting(E_ALL);
 
 require_once("secret.php");
 
-// global $keys;
-
 function getProjecten(){
     global $keys;
     $conn = new mysqli($keys->DB_HOST, $keys->DB_USER, $keys->DB_PASS, $keys->DB_NAME);

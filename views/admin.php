@@ -5,19 +5,12 @@
     <meta name="robots" content="noindex, nofollow" />
     
     <title>Admin pagina</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/projecten.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+    <link href="/public/css/projecten.css" rel="stylesheet">
 
     <?php include './components/bootstrap.html'; ?>
 </head>
 
-<?php require("modules/fetch.php") ?>
-<?php require("modules/auth.php") ?>
-
-<?php isLoggedIn(); ?>
-
-<?php $technieken = getTechnieken(); ?>
-<?php $projecten = getProjecten(); ?>
 <body>
 <div class="main vh-min-100">
 

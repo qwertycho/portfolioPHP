@@ -47,8 +47,8 @@
                         <select onchange="setFilter(this.value)" >
                             <option value="all">Alle technieken</option>
                             <?php
-                                foreach ($technieken as $techniek => $value) {
-                                    echo "<option value='" . $value['id'] ."'> " . $value['id'] . "</option>";
+                                foreach ($technieken as $value) {
+                                    echo "<option value='" . $value['techniek'] ."'> " . $value['techniek'] . "</option>";
                                 }
                             ?>
                         </select>
@@ -67,17 +67,17 @@
                             echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='"  ;
                             
                             foreach ($value['technieken'] as $techniek => $tech) {
-                                echo $tech . " ";
+                                echo $tech['techniek'] . " ";
                             }
+                                echo " all'>";
 
-                            echo " all'>";
-                                echo "<a class='align-middle' href='project.php?project=" .  str_replace(" ", "_", $value['projectNaam']) . "'>";
-                                echo "<div class='inner-project'>";
-                                echo "<img class='img-fluid w-50' src='/public/img/" . $value['techniekImg'] . "' alt='" . $value['techniekImg'] . "'>";
-                                echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
-                                echo "</div>";
+                                echo "<a class='align-middle' href='project/" .  $value['ID'] . "'>";
+                                    echo "<div class='inner-project p-2'>";
+                                        echo "<img class='img-fluid w-50' src='/public/img/" . $value['thumbnail'] . "' alt='" . $value['thumbnail'] . "'>";
+                                        echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
+                                    echo "</div>";
                                 echo "</a>";
-                                echo "</div>";
+                            echo "</div>";
                         }
                     ?>
                     

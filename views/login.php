@@ -8,28 +8,12 @@
     <meta name="robots" content="noindex, nofollow" />
     
     <title>Login</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/projecten.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+    <link href="/public/css/projecten.css" rel="stylesheet">
     <?php include './components/bootstrap.html'; ?>
 
 </head>
 
-<?php require("modules/auth.php") ?>
-
-
-<?php
-
-session_start();
-
-if(isset($_POST['password'])) {
-    if(login($_POST['password'])) {
-        header("Location: ./admin.php");
-    } else {
-        echo "Incorrect password";
-    }
-}
-
-?>
 
 <body>
     <div class="main vh-min-100">
@@ -49,7 +33,7 @@ if(isset($_POST['password'])) {
 
             <div class="container">
 
-                <form action="login.php" method="post">
+                <form action="/admin/login" method="post">
                     <div class="form-group">
                         <label for="email">Wachtwoord</label>
                         <input name="password" type="password" class="form-control" required>

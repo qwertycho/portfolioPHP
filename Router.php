@@ -39,6 +39,8 @@ class Router
             $params = explode($path, $request);
             if (strlen($params[1])) {
                 $callback($params[1]);
+             } else {
+                $callback(null);
              }
         }
     }

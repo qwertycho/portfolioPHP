@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class Router
 {
 
@@ -35,7 +39,6 @@ class Router
             $params = explode($path, $request);
             if (strlen($params[1])) {
                 $callback($params[1]);
-                header("HTTP/1.0 200 OK");
              }
         }
     }

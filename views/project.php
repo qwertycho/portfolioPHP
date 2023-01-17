@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="nl">
 
-<?php require("modules/fetch.php") ?>
 <?php 
-
-if (isset($_GET['project'])) {
-    $projectNaam = $_GET['project'];
-    $projectNaam = str_replace("_", " ", $projectNaam);
-    $selectedProject = getProject($projectNaam);
-} else {
-    header("Location: ./projecten.php");
-}
-
+    global $selectedProject;
+    global $selectedTechnieken;
 ?>
 
 <head>
@@ -25,8 +17,8 @@ if (isset($_GET['project'])) {
     <title>
         <?php echo $selectedProject["projectNaam"] ?>
     </title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/projecten.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+    <link href="/public/css/projecten.css" rel="stylesheet">
 
     <?php include './components/bootstrap.html'; ?>
 </head>
@@ -63,7 +55,7 @@ if (isset($_GET['project'])) {
 
                             echo "<ul class='list-inline text-center'>";
                                 foreach ($selectedProject['technieken'] as $techniek => $value) {
-                                    echo "<li class='list-inline-item' >" . $value . "</li>";
+                                    echo "<li class='list-inline-item' >" . $value['techniek'] . "</li>";
                                 }
                             echo "</ul>";
 
@@ -80,9 +72,9 @@ if (isset($_GET['project'])) {
                                 <div class="row">
 
                             <?php
-                            foreach ($selectedProject['images'] as $img => $link) {
+                            foreach ($selectedProject['afbeeldingen'] as $img => $link) {
                                 echo "<div class='col-sm-6'>";
-                                echo "<img src='./img/" . $link . "' alt='project image' class='img-fluid'>";
+                                echo "<img src='/public/img/" . $link['afbeelding'] . "' alt='project image' class='img-fluid'>";
                                 echo "</div>";
                             }
                             ?>

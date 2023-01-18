@@ -14,6 +14,9 @@
     <?php include './components/bootstrap.html'; ?>
 </head>
 
+
+<?php global $technieken; ?>
+
 <body>
 <div class="main vh-min-100">
 
@@ -63,7 +66,20 @@
 <article class="bg-dark p-5 vh-100">
 
     <div class="techniekContainer">
-                <?php include './components/technieken.html'; ?>
+        <div class="container">
+            <div class="row">
+        <?php
+        foreach ($technieken as $techniek) {
+            echo '<div class="techniek col-sm">';
+            echo "<a href='/projecten?techniek=" . $techniek['techniek'] . "'>";
+            echo '<img class="img-fluid" src="/public/img/technieken/' . $techniek['thumbnail'] . '" alt="' . $techniek['techniek'] . '">';
+            echo '<h4 class="text-center text-white">' . $techniek['techniek'] . '</h4>';
+            echo '</a>';
+            echo '</div>';
+        }
+        ?>
+        </div>
+        </div>
     </div>
 
 </article>

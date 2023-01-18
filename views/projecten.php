@@ -60,14 +60,12 @@
             <div class="container">
 
                 <div class="row">
-                    
                     <?php
-
                         foreach ($projecten as $project => $value) {
                             echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='"  ;
                             
-                            foreach ($value['technieken'] as $techniek => $tech) {
-                                echo $tech['techniek'] . " ";
+                            foreach ($value['technieken'] as $techniek) {
+                                echo $techniek['techniek'] . " ";
                             }
                                 echo " all'>";
 

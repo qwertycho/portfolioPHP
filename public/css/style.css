@@ -76,7 +76,7 @@ main{
     display: flex; 
     flex-direction: column;
     flex: 1;
-    background-image: url("https://tychovanopstal.com/public/img/hero.jpg");
+    background-image: url("/public/img/hero.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

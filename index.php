@@ -12,15 +12,14 @@ $keys = new Secrets();
 
 // $Router->setPublic('/public');
 
-$Router->render('/', 'index');
-$Router->render('/index', 'index');
 
 $Router->render('/contact', 'contact');
 
 $Router->route('/projecten', 'projectenRouter');
 $Router->route('/project/', 'projectenRouter');
-
 $Router->route('/admin', 'adminRouter');
+
+$Router->route('/', 'indexRouter');
 
 $Router->catch('/', function(){
     echo '404';

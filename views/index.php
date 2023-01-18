@@ -63,19 +63,17 @@
     </main>
 </div>
 
-<article class="bg-dark p-5 vh-100">
+<article class="bg-dark p-5 min-vh-50">
 
     <div class="techniekContainer">
         <div class="container">
             <div class="row">
         <?php
         foreach ($technieken as $techniek) {
-            echo '<div class="techniek col-sm">';
-            echo "<a href='/projecten?techniek=" . $techniek['techniek'] . "'>";
-            echo '<img class="img-fluid" src="/public/img/technieken/' . $techniek['thumbnail'] . '" alt="' . $techniek['techniek'] . '">';
-            echo '<h4 class="text-center text-white">' . $techniek['techniek'] . '</h4>';
-            echo '</a>';
-            echo '</div>';
+                echo "<a class='col-sm text-center p-2 m-2 techniek' href='/projecten?techniek=" . $techniek['techniek'] . "'>";
+                    echo '<img class="img-fluid" src="/public/img/technieken/' . $techniek['thumbnail'] . '" alt="' . $techniek['techniek'] . '">';
+                    echo '<h4 class="text-center align-self-center text-white">' . $techniek['techniek'] . '</h4>';
+                echo '</a>';
         }
         ?>
         </div>

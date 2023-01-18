@@ -18,8 +18,10 @@ $Router->render('/contact', 'contact');
 $Router->route('/projecten', 'projectenRouter');
 $Router->route('/project/', 'projectenRouter');
 $Router->route('/admin', 'adminRouter');
-
+$Router->route('/api', 'apiRouter');
 $Router->route('/', 'indexRouter');
+
+
 
 $Router->catch('/', function(){
     echo '404';

@@ -1,8 +1,8 @@
 <?php
 
-var_dump($_POST);
+// var_dump($_POST);
 
-$to = " ";
+$to = "tycho@tychovanopstal.com";
 $from = $_POST['emailAdres'];
 
 $subject = "Contactformulier";
@@ -13,4 +13,4 @@ $headers = "From: $from";
 
 mail($to, $subject, $message, $headers);
 
-header("Location: contact.php");
+header("Location: /contact");

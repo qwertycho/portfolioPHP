@@ -16,6 +16,16 @@ class Router
         }
     }
 
+    public function api($path, $file)
+    {
+        $request = $_SERVER['REQUEST_URI'];
+        if ($request == $path) {
+            require __DIR__ . '/api/' . $file . '.php';
+            exit();
+        }
+    }
+
+
     public function render($path, $file)
     {
         $request = $_SERVER['REQUEST_URI'];

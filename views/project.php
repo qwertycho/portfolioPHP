@@ -48,9 +48,9 @@
                             <?php
 
 
-                            echo "<div class='links bg-dark p-2'>";
-                            echo "<a class='link' href='" . $selectedProject['productLink'] . "' target='_blank'>Link naar project</a>";
-                            echo "<a class='link' href='" . $selectedProject['github'] . "' target='_blank'>Link naar github</a>";
+                            echo "<div class='row bg-dark p-2'>";
+                            echo "<a class='col text-center text-white' href='" . $selectedProject['productLink'] . "' target='_blank'>Link naar project</a>";
+                            echo "<a class='col text-center text-white' href='" . $selectedProject['github'] . "' target='_blank'>Link naar github</a>";
                             echo "</div>";
 
                             echo "<ul class='list-inline text-center'>";

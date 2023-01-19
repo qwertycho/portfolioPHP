@@ -62,7 +62,7 @@
                 <div class="row">
                     <?php
                         foreach ($projecten as $project => $value) {
-                            echo "<div class='col-sm-4  col-6 text-center p-2 inner-project' techniek='"  ;
+                            echo "<div class='col-sm-4  col-6 text-center p-2 inner-project project' techniek='"  ;
                             
                             foreach ($value['technieken'] as $techniek) {
                                 echo $techniek['techniek'] . " ";

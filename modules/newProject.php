@@ -1,9 +1,22 @@
 <?php
 
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once("Afbeelding.php");
+
+
 class Project{
 
+    private static $smaxWidth = 800;
+    private static $smaxHeight = 600;
+    private static $folder = "public/img/projecten/";
+    private static $Afbeelding;
 
     public static function newProject($post){
+        self::$Afbeelding = new Afbeelding(self::$smaxWidth, self::$smaxHeight, self::$folder);
         self::checkFields($post);
         self::saveProject($post, $_FILES);
     }
@@ -16,7 +29,7 @@ class Project{
         $project['github'] = $post['github'];
         $project['productLink'] = $post['productLink'];
         $projectID = self::saveProjectToDb($project);
-        $afbeeldingsnamen = self::saveAfbeeldingen($afbeeldingen);
+        $afbeeldingsnamen = self::saveAfbeeldingen($afbeeldingen['afbeeldingen']);
         self::insertAfbeeldingen($afbeeldingsnamen, $projectID);
         self::saveTechnieken($post['technieken'], $projectID);
     }
@@ -56,29 +69,24 @@ class Project{
 
     private static function saveAfbeeldingen($afbeeldingen){
         $newNames = array();
-        foreach($afbeeldingen['afbeeldingen']['name'] as $key => $name){
-            $newName = time() . $name;
-            self::writeFile($afbeeldingen['afbeeldingen']['tmp_name'][$key], $newName);
-            $newNames[] = $newName;
+
+        for($i = 0; $i < count($afbeeldingen['name']); $i++){
+            $tmpfile = array(
+                'name' => $afbeeldingen['name'][$i],
+                'type' => $afbeeldingen['type'][$i],
+                'tmp_name' => $afbeeldingen['tmp_name'][$i],
+                'error' => $afbeeldingen['error'][$i],
+                'size' => $afbeeldingen['size'][$i]
+            );
+            $newName = self::$Afbeelding->verwerk( $tmpfile );
+            array_push($newNames, $newName);
         }
         return $newNames;
     }
 
     private static function saveAfbeelding($afbeelding){
-            $newName = time() . $afbeelding['name'];
-            self::writeFile($afbeelding['tmp_name'], $newName);
-        
+        $newName = self::$Afbeelding->verwerk($afbeelding);
         return $newName;
-    }
-
-    private static function writeFile($tmpName, $newName){
-        $uploadFolder = "public/img/projecten/";
-        if(!file_exists($uploadFolder)){
-            mkdir($uploadFolder);
-        }
-        if(!move_uploaded_file($tmpName, $uploadFolder . $newName)){
-            die("Afbeelding niet opgeslagen");
-        }
     }
 
     private static function checkFields($post){

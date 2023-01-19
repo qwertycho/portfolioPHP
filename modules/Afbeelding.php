@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class Afbeelding{
     private $smaxWidth;
     private $smaxHeight;
@@ -23,10 +27,11 @@ class Afbeelding{
         $ratio = $width / $height;
         if($width > $height){
             $newWidth = $this->smaxWidth;
-            $newHeight = $newWidth / $ratio;
+            $newHeight = round($newWidth / $ratio);
+
         }else{
             $newHeight = $this->smaxHeight;
-            $newWidth = $newHeight * $ratio;
+            $newWidth = round($newHeight * $ratio);
         }
         return array($newWidth, $newHeight);
     }
@@ -34,6 +39,7 @@ class Afbeelding{
     private function imgageFactory($file){
         $img = imagecreatefromstring(file_get_contents($file['tmp_name']));
         $size = $this->newImageSize(getimagesize($file['tmp_name']));
+        print_r($size);
         $newImg = imagecreatetruecolor($size[0], $size[1]);
         imagealphablending($newImg, false);
         imagesavealpha($newImg, true);
@@ -45,27 +51,13 @@ class Afbeelding{
     }
 
     private function saveAfbeelding($gdIMG, $afbeelding){
-
         $this->checkFolder();
         $newName = time() . $afbeelding['name'];
-        $extension = $afbeelding['type'];
-        $this->saveImg($gdIMG, $newName, $extension);
+        $this->saveImg($gdIMG, $newName);
         return $newName;
     }
 
-    private function getSize($img){
-        $afmetingen = getimagesize($img);
-        if($afmetingen[0] > $afmetingen[1]){
-            $width = $this->smaxWidth;
-            $height = $this->smaxWidth / $afmetingen[0] * $afmetingen[1];
-        } else {
-            $height = $this->smaxHeight;
-            $width = $this->smaxHeight / $afmetingen[1] * $afmetingen[0];
-        }
-        return array($width, $height);
-    }
-
-    public function saveImg($img, $name, $extension){
+    public function saveImg($img, $name){
         $path = $this->folder . $name;
         imagepng($img, $path);
     }
@@ -74,20 +66,6 @@ class Afbeelding{
         if(!file_exists($this->folder)){
             echo $this->folder;
             mkdir($this->folder);
-        }
-    }
-
-    private function getExtension($img){
-        $afmetingen = getimagesize($img);
-        switch($afmetingen["mime"]){
-            case "image/jpeg":
-                return "jpg";
-            case "image/png":
-                return "png";
-            case "image/gif":
-                return "gif";
-            default:
-                return "jpg";
         }
     }
 

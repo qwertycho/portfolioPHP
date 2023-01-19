@@ -1,15 +1,22 @@
 <?php
 
-require_once("secret.php");
+// require_once("secret.php");
+require_once("Afbeelding.php");
 
 class Techniek{
+
+    private $smaxWidth = 300;
+    private $smaxHeight = 300;
+    private $Afbeelding;
 
     private $uploadFolder = "public/img/technieken/";
 
     public function __construct(){
+        $this->Afbeelding = new Afbeelding($this->smaxWidth, $this->smaxHeight, $this->uploadFolder);
     }
 
     public function newTechniek($post){
+        $this->Afbeelding = new Afbeelding($this->smaxWidth, $this->smaxHeight, $this->uploadFolder);
         $this->checkFields($post);
         $this->saveTechniek($post, $_FILES['afbeelding']);
     }
@@ -17,7 +24,7 @@ class Techniek{
     private function saveTechniek($post, $afbeelding){
         $techniek = array();
         $techniek['naam'] = $post['techniek'];
-        $techniek['afbeelding'] = $this->saveAfbeelding($afbeelding);
+        $techniek['afbeelding'] = $this->Afbeelding->verwerk($afbeelding);
         $this->saveTechniekToDb($techniek);
     }
 
@@ -27,26 +34,6 @@ class Techniek{
         $stmt = $conn->prepare("INSERT INTO technieken (techniek, afbeelding) VALUES (?, ?)");
         $stmt->bind_param("ss", $techniek['naam'], $techniek['afbeelding']);
         $stmt->execute();
-    }
-
-    private function saveAfbeelding($afbeelding){
-        $newName = time() . $afbeelding['name'];
-        $this->writeFile($afbeelding['tmp_name'], $newName);
-        return $newName;
-    }
-
-    private function writeFile($tmpName, $newName){
-        $this->checkFolder();
-        if(!move_uploaded_file($tmpName, $this->uploadFolder . $newName)){
-            die("Afbeelding niet opgeslagen");
-        }
-    }
-
-    private function checkFolder(){
-        if(!file_exists($this->uploadFolder)){
-            echo $this->uploadFolder;
-            mkdir($this->uploadFolder);
-        }
     }
 
     private function checkFields($post){

@@ -62,16 +62,16 @@
                 <div class="row">
                     <?php
                         foreach ($projecten as $project => $value) {
-                            echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='"  ;
+                            echo "<div class='col-sm-4  col-6 text-center p-2 inner-project' techniek='"  ;
                             
                             foreach ($value['technieken'] as $techniek) {
                                 echo $techniek['techniek'] . " ";
                             }
                                 echo " all'>";
 
-                                echo "<a class='align-middle' href='project/" .  $value['ID'] . "'>";
-                                    echo "<div class='inner-project p-2'>";
-                                        echo "<img class='img-fluid w-50' src='/public/img/projecten/" . $value['thumbnail'] . "' alt='" . $value['thumbnail'] . "'>";
+                                echo "<a class='align-middle text-white' href='project/" .  $value['ID'] . "'>";
+                                    echo "<div class='p-2'>";
+                                        echo "<img class='img-fluid w-75' src='/public/img/projecten/" . $value['thumbnail'] . "' alt='" . $value['thumbnail'] . "'>";
                                         echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
                                     echo "</div>";
                                 echo "</a>";

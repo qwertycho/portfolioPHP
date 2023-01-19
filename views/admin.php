@@ -29,9 +29,10 @@
         </h3>
 
     <div class="container">
-        <form action="/admin/upload" method="post" enctype="multipart/form-data">
+        <form action="/admin/newProject" method="post" enctype="multipart/form-data">
             <input class="form-control" type="hidden" name="action" value="project" >
             <input class="form-control" type="text" name="projectNaam" placeholder="Project naam" required>
+            <label>thumbnail</label><input class="form-control" type="file" accept="image/" name="thumbnail" required>
 
             <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector" required>
                 <?php
@@ -62,7 +63,7 @@
             <input class="form-control" type="text" name="productLink" placeholder="Product link" required>
             <input class="form-control" type="text" name="github" placeholder="github link" required>
             <textarea class="form-control" type="text" name="omschrijving" required placeholder="omschrijving"></textarea>
-            <input class="form-control" type="file" multiple accept="image/" name="afbeeldingen[]" required>
+            <label>project foto's</label><input class="form-control" type="file" multiple accept="image/" name="afbeeldingen[]" required>
 
             <button class="form-control" type="submit" id="projectFormSubmit">Submit</button>
 

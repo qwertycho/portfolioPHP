@@ -33,7 +33,6 @@ $Router->params('/projecten', function($id) {
             $newProjecten[] = $project;
         }
 
-
         $projecten = $newProjecten;
 
         $Router->render("/projecten" . $id, 'projecten');

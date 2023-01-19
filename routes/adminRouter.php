@@ -8,6 +8,7 @@ require_once("modules/secret.php");
 require_once("Router.php");
 require_once("modules/fetch.php");
 require_once("modules/newTechniek.php");
+require_once("modules/newProject.php");
 
 global $keys;
 global $Router;
@@ -34,6 +35,16 @@ $Router->match('/admin/newTechniek', function(){
     $Techniek = new Techniek();
     try{
         $Techniek->newTechniek($_POST);
+        header('Location: /admin');
+    } catch(Exception $e){
+        echo $e->getMessage();
+    }
+});
+
+$Router->match('/admin/newProject', function(){
+    try{
+        Project::newProject($_POST);
+        header('Location: /admin');
     } catch(Exception $e){
         echo $e->getMessage();
     }

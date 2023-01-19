@@ -21,7 +21,6 @@ function getProject($id){
     global $selectedProject;
     global $conn;
 
-    // $conn = new mysqli($keys->DB_HOST, $keys->DB_USER, $keys->DB_PASS, $keys->DB_NAME);
     $getSQL = "SELECT * from projecten WHERE ID = " . $id;	
     $selectedProject = mysqli_query($conn, $getSQL);
     $selectedProject = $selectedProject->fetch_all(MYSQLI_ASSOC);
@@ -32,7 +31,7 @@ function getProject($id){
     $selectedtTechnieken = mysqli_query($conn, $getSQL);
     $selectedProject['technieken'] = $selectedtTechnieken->fetch_all(MYSQLI_ASSOC);
 
-    $getSQL = "SELECT link AS afbeelding from afbeeldingen WHERE projectID = " . $id;
+    $getSQL = "SELECT afbeelding from projectAfbeeldingen WHERE projectID = " . $id;
     $selectedtAfbeeldingen = mysqli_query($conn, $getSQL);
     $selectedProject['afbeeldingen'] = $selectedtAfbeeldingen ->fetch_all(MYSQLI_ASSOC);
 

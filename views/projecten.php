@@ -71,7 +71,7 @@
 
                                 echo "<a class='align-middle' href='project/" .  $value['ID'] . "'>";
                                     echo "<div class='inner-project p-2'>";
-                                        echo "<img class='img-fluid w-50' src='/public/img/" . $value['thumbnail'] . "' alt='" . $value['thumbnail'] . "'>";
+                                        echo "<img class='img-fluid w-50' src='/public/img/projecten/" . $value['thumbnail'] . "' alt='" . $value['thumbnail'] . "'>";
                                         echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
                                     echo "</div>";
                                 echo "</a>";

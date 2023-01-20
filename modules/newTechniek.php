@@ -13,6 +13,28 @@ class Techniek{
 
     private static $uploadFolder = "public/img/technieken/";
 
+    public static function update($post){
+        self::$Afbeelding = new Afbeelding(self::$maxWidth, self::$maxHeight, self::$uploadFolder);
+        self::checkFields($post);
+        self::updateTechniek($post, $_FILES['afbeelding']);
+    }
+
+    private static function updateTechniekToDb($techniek){
+        global $keys;
+        $conn = new mysqli($keys->DB_HOST, $keys->DB_USER, $keys->DB_PASS, $keys->DB_NAME);
+        $stmt = $conn->prepare("UPDATE technieken SET techniek = ?, afbeelding = ? WHERE techniek = ?");
+        $stmt->bind_param("sss", $techniek['naam'], $techniek['afbeelding'], $_POST['id']);
+        $stmt->execute();
+        unlink(self::$uploadFolder . $_POST['afbeeldingLink']);
+    }
+
+    private static function updateTechniek($post, $afbeelding){
+        $techniek = array();
+        $techniek['naam'] = $post['techniek'];
+        $techniek['afbeelding'] = self::$Afbeelding->verwerk($afbeelding);
+        self::updateTechniekToDb($techniek);
+    }
+
     public static function newTechniek($post){
         self::$Afbeelding = new Afbeelding(self::$maxWidth, self::$maxHeight, self::$uploadFolder);
         self::checkFields($post);

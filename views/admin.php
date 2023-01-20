@@ -29,7 +29,7 @@
         </h3>
 
     <div class="container">
-        <form action="/admin/newProject" method="post" enctype="multipart/form-data">
+        <form action="/admin/newProject" method="post" enctype="multipart/form-data" class="col-sm">
             <input class="form-control" type="hidden" name="action" value="project" >
             <input class="form-control" type="text" name="projectNaam" placeholder="Project naam" required>
             <label>thumbnail</label><input class="form-control" type="file" accept="image/" name="thumbnail" required>
@@ -69,6 +69,8 @@
 
         </form>
 
+        <div class="col-sm">
+
         <form action="/admin/newTechniek" method="post" enctype="multipart/form-data">
             <input class="form-control" type="hidden" name="action" value="techniek">
             <input class="form-control" type="file" name="afbeelding" >
@@ -76,6 +78,27 @@
             <input class="form-control" type="submit" value="Upload Image" name="submit">
         </form>
 
+        <div>
+                <h3 class=""> 
+                    technieken
+                </h3>
+
+                <?php  
+                    foreach ($technieken as $val => $value) {
+                        echo "<form action='/admin/updateTechniek' method='post' enctype='multipart/form-data'>";
+                        echo "<input class='form-control' type='hidden' name='action' value='updateTechniek'>";
+                        echo "<input class='form-control' type='hidden' name='id' value='$value[techniek]'>";
+                        echo "input class=''hidden' type='text' name='afbeeldingLink' value='$value[thumbnail]'>";
+                        echo "<input class='form-control' type='text' name='techniek' value='$value[techniek]'>";
+                        echo "<input class='form-control' type='file' name='afbeelding' >";
+                        echo "<input class='form-control' type='submit' value='Update' name='submit'>";
+                        echo "</form>";
+                    }
+                ?>
+
+        </div>
+
+    </div>
 
     </div>
     

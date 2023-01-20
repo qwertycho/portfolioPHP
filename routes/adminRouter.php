@@ -49,6 +49,15 @@ $Router->match('/admin/newProject', function(){
     }
 });
 
+$Router->match('/admin/updateTechniek', function(){
+    try{
+        Techniek::update($_POST);
+        header('Location: /admin');
+    } catch(Exception $e){
+        echo $e->getMessage();
+    }
+});
+
 global $technieken;
 global $projecten;
  

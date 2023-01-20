@@ -102,7 +102,7 @@ class Project{
     }
 
     private static function projectAfbeelding(){
-        for($i = 0; $i < count($_FILES); $i++){
+        for($i = 0; $i < count($_FILES['afbeeldingen']['name']); $i++){
             if($_FILES['afbeeldingen']['error'][$i] != 0){
                 die("Afbeelding niet gevonden");
             }

@@ -39,13 +39,11 @@ class Afbeelding{
     private function imgageFactory($file){
         $img = imagecreatefromstring(file_get_contents($file['tmp_name']));
         $size = $this->newImageSize(getimagesize($file['tmp_name']));
-        print_r($size);
         $newImg = imagecreatetruecolor($size[0], $size[1]);
         imagealphablending($newImg, false);
         imagesavealpha($newImg, true);
         $transparent = imagecolorallocatealpha($newImg, 255, 255, 255, 127);
         imagefilledrectangle($newImg, 0, 0, $size[0], $size[1], $transparent);
-
         imagecopyresampled($newImg, $img, 0, 0, 0, 0, $size[0], $size[1], getimagesize($file['tmp_name'])[0], getimagesize($file['tmp_name'])[1]);
         return $newImg;
     }

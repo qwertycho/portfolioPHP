@@ -32,9 +32,8 @@ if( !isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true ){
 }
 
 $Router->match('/admin/newTechniek', function(){
-    $Techniek = new Techniek();
     try{
-        $Techniek->newTechniek($_POST);
+        Techniek::newTechniek($_POST);
         header('Location: /admin');
     } catch(Exception $e){
         echo $e->getMessage();

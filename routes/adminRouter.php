@@ -44,7 +44,7 @@ $Router->match('/admin/newTechniek', function(){
 $Router->match('/admin/newProject', function(){
     try{
         Project::newProject($_POST);
-        // header('Location: /admin');
+        header('Location: /admin');
     } catch(Exception $e){
         echo $e->getMessage();
     }

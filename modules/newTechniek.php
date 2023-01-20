@@ -1,34 +1,32 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // require_once("secret.php");
 require_once("Afbeelding.php");
 
 class Techniek{
 
-    private $smaxWidth = 300;
-    private $smaxHeight = 300;
-    private $Afbeelding;
+    private static $maxWidth = 300;
+    private static $maxHeight = 300;
+    private static $Afbeelding;
 
-    private $uploadFolder = "public/img/technieken/";
+    private static $uploadFolder = "public/img/technieken/";
 
-    public function __construct(){
-        $this->Afbeelding = new Afbeelding($this->smaxWidth, $this->smaxHeight, $this->uploadFolder);
+    public static function newTechniek($post){
+        self::$Afbeelding = new Afbeelding(self::$maxWidth, self::$maxHeight, self::$uploadFolder);
+        self::checkFields($post);
+        self::saveTechniek($post, $_FILES['afbeelding']);
     }
 
-    public function newTechniek($post){
-        $this->Afbeelding = new Afbeelding($this->smaxWidth, $this->smaxHeight, $this->uploadFolder);
-        $this->checkFields($post);
-        $this->saveTechniek($post, $_FILES['afbeelding']);
-    }
-
-    private function saveTechniek($post, $afbeelding){
+    private static function saveTechniek($post, $afbeelding){
         $techniek = array();
         $techniek['naam'] = $post['techniek'];
-        $techniek['afbeelding'] = $this->Afbeelding->verwerk($afbeelding);
-        $this->saveTechniekToDb($techniek);
+        $techniek['afbeelding'] = self::$Afbeelding->verwerk($afbeelding);
+        self::saveTechniekToDb($techniek);
     }
 
-    private function saveTechniekToDb($techniek){
+    private static function saveTechniekToDb($techniek){
         global $keys;
         $conn = new mysqli($keys->DB_HOST, $keys->DB_USER, $keys->DB_PASS, $keys->DB_NAME);
         $stmt = $conn->prepare("INSERT INTO technieken (techniek, afbeelding) VALUES (?, ?)");
@@ -36,33 +34,33 @@ class Techniek{
         $stmt->execute();
     }
 
-    private function checkFields($post){
-        $this->techniekNaam($post);
-        $this->techniekAfbeelding();
+    private static function checkFields($post){
+        self::techniekNaam($post);
+        self::techniekAfbeelding();
     }
 
-    private function techniekNaam($post){
+    private static function techniekNaam($post){
         if(!isset($post['techniek'])){
             die("techniek naam niet gevonden");
         }
     }
 
-    private function techniekAfbeelding(){
+    private static function techniekAfbeelding(){
         if($_FILES['afbeelding']['error'] != 0){
             die("techniek afbeelding niet gevonden");
         }
-        $this->isTypeAllowed($_FILES['afbeelding']['type']);
-        $this->isSizeAllowed($_FILES['afbeelding']['size']);
+        self::isTypeAllowed($_FILES['afbeelding']['type']);
+        self::isSizeAllowed($_FILES['afbeelding']['size']);
     }
 
-    private function isTypeAllowed($ext){
+    private static function isTypeAllowed($ext){
         $allowed = array('image/jpg', 'image/jpeg', 'image/png');
         if(!in_array($ext, $allowed)){
             die("Bestandstype is niet toegestaan" . $ext);
         }
     }
 
-    private function isSizeAllowed($size){
+    private static function isSizeAllowed($size){
         if($size > 100000000){
             die("Bestand is te groot");
         }

@@ -19,7 +19,7 @@ async function update(id){
 }
 
 
-async function verwijder(id){
+async function yeet(id){
     id = { id: id };
     fetchBoy("delete", id);
 }

@@ -31,7 +31,7 @@
                 <h1 class="text-white text-center">Tycho van Opstal</h1>
                 <h2 class="text-white text-center">Bewerk project</h2>
                 <?php include './components/nav.html'; ?>
-                <button class="btn-danger" onclick="delete(<?php echo $selectedProject['ID']?>)" >Verwijder</button>
+                <button class="btn-danger" onclick="yeet(<?php echo $selectedProject['ID']?>)" >Verwijder</button>
                 <button class="btn-info"onclick="update('<?php echo $selectedProject['ID']?>')" >Opslaan</button>
             </header>
 

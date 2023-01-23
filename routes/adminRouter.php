@@ -91,7 +91,18 @@ $Router->match('/admin/bewerk/update', function(){
 
 });
 
+$Router->match('/admin/bewerk/delete', function(){
+   $data = json_decode(file_get_contents('php://input'), true);
 
+    $project = [
+        'id' => $data['id'],
+    ];
+
+    Project::delete($project);
+
+    echo json_encode(new statusResponse("ok", "Project is succesvol geupdate!"));
+
+});
 
 $Router->params('/admin/bewerk/', function($id) {
     $id = intval($id);

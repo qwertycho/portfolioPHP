@@ -38,6 +38,25 @@ class Project{
         $conn->close();
     }
 
+    public static function delete($project){
+        global $keys;
+        $conn = new mysqli($keys->DB_HOST, $keys->DB_USER, $keys->DB_PASS, $keys->DB_NAME);
+    
+        $stmt = $conn->prepare("DELETE FROM projecten WHERE id = ?");
+        $stmt->bind_param("s", $project['id']);
+        $stmt->execute();
+
+        $stmt = $conn->prepare("DELETE FROM projectenPivotTechnieken WHERE projectID = ?");
+        $stmt->bind_param("s", $project['id']);
+        $stmt->execute();
+
+        $stmt = $conn->prepare("DELETE FROM projectAfbeeldingen WHERE projectID = ?");
+        $stmt->bind_param("s", $project['id']);
+        $stmt->execute();
+
+        $conn->close();
+    }
+
     private static function saveProject($post, $afbeeldingen){
         $project = array();
         $project['naam'] = $post['projectNaam'];
@@ -50,6 +69,8 @@ class Project{
         self::insertAfbeeldingen($afbeeldingsnamen, $projectID);
         self::saveTechnieken($post['technieken'], $projectID);
     }
+
+
 
     private static function saveProjectToDB($project){
         global $keys;

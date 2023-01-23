@@ -65,7 +65,7 @@ $Router->match('/admin/updateTechniek', function(){
 global $technieken;
 global $projecten;
  
-$technieken = getTechnieken();
+$technieken = Fetch::getTechnieken();
 
 $Router->match('/admin/bewerk/update', function(){
    $data = json_decode(file_get_contents('php://input'), true);

@@ -21,14 +21,14 @@ if ($conn->connect_error) {
 $Router->params('/projecten', function($id) {
         global $projecten;
         global $technieken;
-        $technieken = getTechnieken();
+        $technieken = Fetch::getTechnieken();
         global $Router;
-        $projecten = getProjecten();
+        $projecten = Fetch::getProjecten();
 
         $newProjecten = array();
 
         foreach($projecten as $project) {
-            $Selectedtechnieken = getSelectedtechnieken($project['ID']);
+            $Selectedtechnieken = Fetch::getSelectedtechnieken($project['ID']);
             $project['technieken'] = $Selectedtechnieken;
             $newProjecten[] = $project;
         }
@@ -44,7 +44,7 @@ $Router->params('/project/', function($param) {
     if($id > 0) {
         global $selectedProject;
 
-        $selectedProject = getProject($id);
+        $selectedProject = Fetch::getProject($id);
 
         global $Router;
         $Router->render("/project/" . $id, 'project');

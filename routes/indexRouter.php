@@ -18,7 +18,7 @@ $Router->render('/admin/login', 'login');
 global $technieken;
 global $projecten;
  
-$technieken = getTechnieken();
+$technieken = Fetch::getTechnieken();
 
 $Router->render('/', 'index');
 $Router->render('/index', 'index');

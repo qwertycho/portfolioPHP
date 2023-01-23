@@ -6,11 +6,17 @@ error_reporting(E_ALL);
 
 require_once('Router.php');
 require_once('./modules/secret.php');
+require_once('./modules/fetch.php');
 
 global $keys;
 $keys = new Secrets();
 
 $Router->render('/contact', 'contact');
+
+global $technieken;
+$technieken = Fetch::getTechnieken();
+$Router->render('/cv', 'cv');
+
 
 $Router->route('/projecten', 'projectenRouter');
 $Router->route('/project/', 'projectenRouter');

@@ -21,6 +21,23 @@ class Project{
         self::saveProject($post, $_FILES);
     }
 
+    public static function update($project){
+        global $keys;
+        $conn = new mysqli($keys->DB_HOST, $keys->DB_USER, $keys->DB_PASS, $keys->DB_NAME);
+    
+        $stmt = $conn->prepare("UPDATE projecten SET projectNaam = ?, omschrijving = ? WHERE id = ?");
+        $stmt->bind_param("sss", $project['naam'], $project['omschrijving'], $project['id']);
+        $stmt->execute();
+
+        $stmt = $conn->prepare("DELETE FROM projectenPivotTechnieken WHERE projectID = ?");
+        $stmt->bind_param("s", $project['id']);
+        $stmt->execute();
+
+        self::saveTechnieken($project['technieken'], $project['id']);
+        
+        $conn->close();
+    }
+
     private static function saveProject($post, $afbeeldingen){
         $project = array();
         $project['naam'] = $post['projectNaam'];

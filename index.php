@@ -10,9 +10,6 @@ require_once('./modules/secret.php');
 global $keys;
 $keys = new Secrets();
 
-// $Router->setPublic('/public');
-
-
 $Router->render('/contact', 'contact');
 
 $Router->route('/projecten', 'projectenRouter');

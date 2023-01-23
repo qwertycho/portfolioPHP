@@ -1,8 +1,10 @@
 <?php
 
-// var_dump($_POST);
+require_once("modules/secret.php");
 
-$to = "tycho@tychovanopstal.com";
+global $keys;
+
+$to = $keys->email;
 $from = $_POST['emailAdres'];
 
 $subject = "Contactformulier";

@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="about">
-                        <p class="text-justify">
+                        <p class="p-3 dark rounded">
                             Ik ben Tycho van Opstal, een student software developer aan het Grafisch Lyceum Rotterdam!
                             Mijn passie voor technologie zorgt ervoor dat geen uitdaging te groot is.
                             In mijn vrije tijd ben ik (meestal) bezig met allerlei projecten, zoals het ontwikkelen van websites en applicaties.

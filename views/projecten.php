@@ -31,7 +31,7 @@
 
     <main>
         <div>
-        <h3 class="text-center m-3">
+        <h3 class="text-center m-3 text-white">
                 Filter
             </h3>
             

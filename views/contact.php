@@ -28,7 +28,7 @@
 
         <main>
 
-        <h3 class="text-center m-3">
+        <h3 class="text-center text-white m-3">
                 Contact
             </h3>
 

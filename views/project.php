@@ -36,7 +36,7 @@
 
             <main>
 
-            <h3 class="text-center m-3">
+            <h3 class="text-center text-white m-3">
                     <?php echo $selectedProject['projectNaam'] ?>
                 </h3>
 
@@ -60,7 +60,7 @@
                             echo "</ul>";
 
 
-                            echo "<p>" . $selectedProject['omschrijving'] . "</p>";
+                            echo "<p class='p-3 dark rounded'>" . $selectedProject['omschrijving'] . "</p>";
 
 
                             ?>

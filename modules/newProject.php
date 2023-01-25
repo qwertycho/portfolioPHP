@@ -142,6 +142,7 @@ class Project{
     private static function projectAfbeelding(){
         for($i = 0; $i < count($_FILES['afbeeldingen']['name']); $i++){
             if($_FILES['afbeeldingen']['error'][$i] != 0){
+                print_r($_FILES['afbeeldingen']);
                 die("Afbeelding niet gevonden");
             }
             self::isTypeAllowed($_FILES['afbeeldingen']['type'][$i]);

@@ -38,11 +38,6 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col-">
-                        <button onclick="urlFilter('techniek=all')">
-                            Alle technieken
-                        </button>
-
-                        
 
                         <select onchange="setFilter(this.value)" >
                             <option value="all">Alle technieken</option>
@@ -62,7 +57,7 @@
                 <div class="row">
                     <?php
                         foreach ($projecten as $project => $value) {
-                            echo "<div class='col-sm-4  col-6 text-center p-2 inner-project project' techniek='"  ;
+                            echo "<div class='col-sm-4  col-6 text-center p-2 project' techniek='"  ;
                             
                             foreach ($value['technieken'] as $techniek) {
                                 echo $techniek['techniek'] . " ";
@@ -70,8 +65,8 @@
                                 echo " all'>";
 
                                 echo "<a class='align-middle text-white' href='project/" .  $value['ID'] . "'>";
-                                    echo "<div class='p-2'>";
-                                        echo "<img class='img-fluid w-75' src='/public/img/projecten/" . $value['thumbnail'] . "' alt='" . $value['thumbnail'] . "'>";
+                                    echo "<div class='p-2 inner-project rounded'>";
+                                        echo "<img class='img-fluid ' src='/public/img/projecten/" . $value['thumbnail'] . "' alt='" . $value['thumbnail'] . "'>";
                                         echo "<p class='project-titel'> " . $value['projectNaam'] . "</p>";
                                     echo "</div>";
                                 echo "</a>";

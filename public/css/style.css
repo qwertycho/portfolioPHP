@@ -101,7 +101,7 @@ article .techniek{
     border-radius: 15%;
 }
 
-.cv-container{
+.outer-container{
     width: 80% !important;
     margin-left: auto;
     margin-right: auto;

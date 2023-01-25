@@ -37,7 +37,7 @@
         CV
         </h3>
 
-        <div class="container-fluid cv-container text-white dark p-3 rounded">
+        <div class="container-fluid outer-container text-white dark p-3 rounded">
             <div class="row row-cols-1">
                 <div class="col-12">
                         <p>

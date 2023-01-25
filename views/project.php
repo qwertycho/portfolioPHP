@@ -73,7 +73,7 @@
 
                             <?php
                             foreach ($selectedProject['afbeeldingen'] as $img => $link) {
-                                echo "<div class='col-sm-6'>";
+                                echo "<div class='col-sm-12'>";
                                 echo "<img src='/public/img/projecten/" . $link['afbeelding'] . "' alt='project image' class='img-fluid'>";
                                 echo "</div>";
                             }

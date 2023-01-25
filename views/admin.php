@@ -86,12 +86,12 @@
                 <?php  
                     foreach ($technieken as $val => $value) {
                         echo "<form action='/admin/updateTechniek' method='post' enctype='multipart/form-data'>";
-                        echo "<input class='form-control' type='hidden' name='action' value='updateTechniek'>";
-                        echo "<input class='form-control' type='hidden' name='id' value='$value[techniek]'>";
-                        echo "input class=''hidden' type='text' name='afbeeldingLink' value='$value[thumbnail]'>";
-                        echo "<input class='form-control' type='text' name='techniek' value='$value[techniek]'>";
-                        echo "<input class='form-control' type='file' name='afbeelding' >";
-                        echo "<input class='form-control' type='submit' value='Update' name='submit'>";
+                            echo "<input class='form-control' type='hidden' name='action' value='updateTechniek'>";
+                            echo "<input class='form-control' type='hidden' name='id' value='$value[techniek]'>";
+                            echo "input class='hidden' type='text' name='afbeeldingLink' value='$value[thumbnail]'>";
+                            echo "<input class='form-control' type='text' name='techniek' value='$value[techniek]'>";
+                            echo "<input class='form-control' type='file' name='afbeelding' >";
+                            echo "<input class='form-control' type='submit' value='Update' name='submit'>";
                         echo "</form>";
                     }
                 ?>

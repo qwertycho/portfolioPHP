@@ -41,7 +41,7 @@
             <div class="row">
 
                 <div class="col-sm text-center">
-                    <img class="img-fluid w-75" src="/public/img/tycho.jpg" alt="Tycho">
+                    <img class="img-fluid w-75 dark rounded" src="/public/img/tycho.png" alt="Tycho">
                 </div>
                 <div class="col-sm">
                     <div class="about">

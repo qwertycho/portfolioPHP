@@ -10,6 +10,7 @@
     <meta name="author" content="Tycho van Opstal">
 
     <title>Tycho van Opstal</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/img/favicon.png">
     <link href="/public/css/style.css" rel="stylesheet">
     <link href="/public/css/projecten.css" rel="stylesheet">
     <script src="/public/js/projecten.js" defer></script>

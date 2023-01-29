@@ -17,6 +17,7 @@
     <title>
         <?php echo $selectedProject["projectNaam"] ?>
     </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/img/favicon.png">
     <link href="/public/css/style.css" rel="stylesheet">
     <link href="/public/css/projecten.css" rel="stylesheet">
 

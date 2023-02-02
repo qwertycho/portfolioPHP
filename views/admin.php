@@ -16,6 +16,7 @@
 <div class="main vh-min-100">
 
 <?php global $technieken; ?>
+<?php global $projecten; ?>
 
 <header class="bg-dark">
     <h1 class="text-white text-center">Tycho van Opstal</h1>
@@ -30,45 +31,55 @@
         </h3>
 
     <div class="container">
-        <form action="/admin/newProject" method="post" enctype="multipart/form-data" class="col-sm">
-            <input class="form-control" type="hidden" name="action" value="project" >
-            <input class="form-control" type="text" name="projectNaam" placeholder="Project naam" required>
-            <label>thumbnail</label><input class="form-control" type="file" accept="image/" name="thumbnail" required>
+        <div class="col-sm">
+            <form action="/admin/newProject" method="post" enctype="multipart/form-data" class="col-sm">
+                <input class="form-control" type="hidden" name="action" value="project" >
+                <input class="form-control" type="text" name="projectNaam" placeholder="Project naam" required>
+                <label>thumbnail</label><input class="form-control" type="file" accept="image/" name="thumbnail" required>
 
-            <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector" required>
+                <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector" required>
+                    <?php
+                    echo "<option value='null'>techniek 1</option>";
+                    foreach ($technieken as $val => $value) {
+                        echo "<option value='$value[techniek]'>$value[techniek]</option>";
+                    }
+                    ?>
+                </select>
+                <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector">
+                    <?php
+                    echo "<option value='null'>techniek 2</option>";
+                    foreach ($technieken as $val => $value) {
+                        echo "<option value='$value[techniek]'>$value[techniek]</option>";
+                    }
+                    ?>
+                </select>
+                <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector">
+                    <?php
+                    echo "<option value='null'>techniek 3</option>";
+                    foreach ($technieken as $val => $value) {
+                        echo "<option value='$value[techniek]'>$value[techniek]</option>";
+                    }
+                    ?>
+                </select>
+
+
+                <input class="form-control" type="text" name="productLink" placeholder="Product link" required>
+                <input class="form-control" type="text" name="github" placeholder="github link" required>
+                <textarea class="form-control" type="text" name="omschrijving" required placeholder="omschrijving"></textarea>
+                <label>project foto's</label><input class="form-control" type="file" multiple accept="image/" name="afbeeldingen[]" required>
+
+                <button class="form-control" type="submit" id="projectFormSubmit">Submit</button>
+
+            </form>
+
+            <div class="bewerkProjecten">
                 <?php
-                echo "<option value='null'>techniek 1</option>";
-                foreach ($technieken as $val => $value) {
-                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
-                }
-                ?>
-            </select>
-            <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector">
-                <?php
-                echo "<option value='null'>techniek 2</option>";
-                foreach ($technieken as $val => $value) {
-                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
-                }
-                ?>
-            </select>
-            <select class="form-control" name="technieken[]" id="projectTechniek" class="techniekSelector">
-                <?php
-                echo "<option value='null'>techniek 3</option>";
-                foreach ($technieken as $val => $value) {
-                    echo "<option value='$value[techniek]'>$value[techniek]</option>";
-                }
-                ?>
-            </select>
-
-
-            <input class="form-control" type="text" name="productLink" placeholder="Product link" required>
-            <input class="form-control" type="text" name="github" placeholder="github link" required>
-            <textarea class="form-control" type="text" name="omschrijving" required placeholder="omschrijving"></textarea>
-            <label>project foto's</label><input class="form-control" type="file" multiple accept="image/" name="afbeeldingen[]" required>
-
-            <button class="form-control" type="submit" id="projectFormSubmit">Submit</button>
-
-        </form>
+                    foreach ($projecten as $val => $value) {
+                       echo "<a href='/admin/bewerk/$value[ID]'>$value[projectNaam]</a> <br>";
+                    }
+        	    ?>
+            </div>
+        </div>
 
         <div class="col-sm">
 

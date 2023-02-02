@@ -21,6 +21,7 @@ class Techniek{
     
     private static function updateTechniek($post, $afbeelding){
         $techniek = array();
+        $techniek['oldNaam'] = $_POST['id'];
         $techniek['naam'] = $post['techniek'];
         $techniek['afbeelding'] = self::$Afbeelding->verwerk($afbeelding);
         self::updateTechniekToDb($techniek);
@@ -33,7 +34,7 @@ class Techniek{
         $stmt->bind_param("sss", $techniek['naam'], $techniek['afbeelding'], $_POST['id']);
         $stmt->execute();
         $stmt = $conn->prepare("UPDATE projectenPivotTechnieken set techniekID = ? WHERE techniekID = ?");
-        $stmt->bind_param("ss", $techniek['naam'], $_POST['id']);
+        $stmt->bind_param("ss", $techniek['naam'], $techniek['oldNaam']);
         $stmt->execute();
         unlink(self::$uploadFolder . $_POST['afbeeldingLink']);
     }

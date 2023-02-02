@@ -66,19 +66,26 @@ global $technieken;
 global $projecten;
  
 $technieken = Fetch::getTechnieken();
+$projecten = Fetch::getProjecten();
 
 $Router->match('/admin/bewerk/update', function(){
    $data = json_decode(file_get_contents('php://input'), true);
 
+    // fields controleren
     testUpdate::test($data);
-
+    $naam = str_replace("<br>", "", $data['naam']);
+    $naam = str_replace("&nbsp;", "", $naam);
+    $naam = trim($naam);
+    
+    $omschrijving = trim($data['omschrijving']);
     $project = [
         'id' => $data['id'],
-        'naam' => $data['naam'],
-        'omschrijving' => $data['omschrijving'],
+        'naam' => $naam,
+        'omschrijving' => $omschrijving,
         'technieken' => [$data['techniek'][0]]
     ];
 
+// techniekn array vullen
     foreach($data['techniek'] as $techniek){
         if($techniek != $data['techniek'][0] && $techniek != null && $techniek != "null" && $techniek != ""){
             array_push($project['technieken'], $techniek);

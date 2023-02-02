@@ -18,6 +18,13 @@ class Techniek{
         self::checkFields($post);
         self::updateTechniek($post, $_FILES['afbeelding']);
     }
+    
+    private static function updateTechniek($post, $afbeelding){
+        $techniek = array();
+        $techniek['naam'] = $post['techniek'];
+        $techniek['afbeelding'] = self::$Afbeelding->verwerk($afbeelding);
+        self::updateTechniekToDb($techniek);
+    }
 
     private static function updateTechniekToDb($techniek){
         global $keys;
@@ -25,14 +32,10 @@ class Techniek{
         $stmt = $conn->prepare("UPDATE technieken SET techniek = ?, afbeelding = ? WHERE techniek = ?");
         $stmt->bind_param("sss", $techniek['naam'], $techniek['afbeelding'], $_POST['id']);
         $stmt->execute();
+        $stmt = $conn->prepare("UPDATE projectenPivotTechnieken set techniekID = ? WHERE techniekID = ?");
+        $stmt->bind_param("ss", $techniek['naam'], $_POST['id']);
+        $stmt->execute();
         unlink(self::$uploadFolder . $_POST['afbeeldingLink']);
-    }
-
-    private static function updateTechniek($post, $afbeelding){
-        $techniek = array();
-        $techniek['naam'] = $post['techniek'];
-        $techniek['afbeelding'] = self::$Afbeelding->verwerk($afbeelding);
-        self::updateTechniekToDb($techniek);
     }
 
     public static function newTechniek($post){
